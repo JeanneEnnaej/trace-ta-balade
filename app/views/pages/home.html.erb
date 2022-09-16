@@ -1,2 +1,15 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<%= link_to "connexion", new_user_session_path %>
+<%= link_to "inscription", new_user_registration_path %>
+<%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+
+<% if current_user %>
+  <%= current_user.first_name %>
+  <% if current_user.photo.present? %>
+    <p> avatar<%= cl_image_tag current_user.photo.key %></p>
+  <% else %>
+    <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1663317287/35a1e6d69cf6924b6076d864a5d39e95_d9slf9.jpg">
+  <% end %>
+
+<% end %>
