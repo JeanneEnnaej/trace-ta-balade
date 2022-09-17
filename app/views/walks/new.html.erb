@@ -1,3 +1,16 @@
 <p> Créer une nouvelle balade</p>
 
-<%= render "form_walk", walk: @walk %>
+<%#= render "form_walk", walk: @walk, user: current_user %>
+<%= simple_form_for(@walk) do |f| %>
+  <%= f.input :title %>
+  <%#= f.input :num_km %>
+  <%#= f.input :duration %>
+  <%#= f.input :ratting %>
+  <%= f.input :address%>
+  <%= f.input :date %>
+  <%#= f.input :content %>
+  <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%#= f.input :disadvantages, collection: ["Parking", "Routes", "Chasse", "Fréquentation"]%>
+  <%#= f.input :advantages, collection: ["Parking", "Routes", "Chasse", "Fréquentation"]%>
+  <%= f.button :submit %>
+<% end %>
