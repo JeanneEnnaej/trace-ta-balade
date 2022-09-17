@@ -1,0 +1,13 @@
+<%= simple_form_for[user, walk] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :num_km %>
+  <%= f.input :duration %>
+  <%= f.input :ratting %>
+  <%= f.input :address%>
+  <%= f.input :date %>
+  <%= f.input :content %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :disadvantages, collection: ["Parking", "Routes", "Chasse", "Fréquentation"]%>
+  <%= f.input :advantages, collection: ["Parking", "Routes", "Chasse", "Fréquentation"]%>
+  <%= f.button :submit %>
+<% end %>
