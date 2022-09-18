@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_17_164041) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_18_142434) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_17_164041) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "advantages", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "disadvantages", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -57,6 +69,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_17_164041) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "walk_advantages", force: :cascade do |t|
+    t.bigint "walk_id", null: false
+    t.bigint "advantage_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["advantage_id"], name: "index_walk_advantages_on_advantage_id"
+    t.index ["walk_id"], name: "index_walk_advantages_on_walk_id"
+  end
+
+  create_table "walk_disadvantages", force: :cascade do |t|
+    t.bigint "walk_id", null: false
+    t.bigint "disadvantage_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["disadvantage_id"], name: "index_walk_disadvantages_on_disadvantage_id"
+    t.index ["walk_id"], name: "index_walk_disadvantages_on_walk_id"
+  end
+
   create_table "walks", force: :cascade do |t|
     t.string "title"
     t.integer "num_km"
@@ -65,15 +95,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_17_164041) do
     t.string "address"
     t.date "date"
     t.text "content"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "disadvantages", default: [], array: true
-    t.string "advantages", default: [], array: true
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_walks_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "walk_advantages", "advantages"
+  add_foreign_key "walk_advantages", "walks"
+  add_foreign_key "walk_disadvantages", "disadvantages"
+  add_foreign_key "walk_disadvantages", "walks"
   add_foreign_key "walks", "users"
 end

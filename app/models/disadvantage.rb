@@ -1,0 +1,2 @@
+class Disadvantage < ApplicationRecord
+end
