@@ -13,12 +13,13 @@ class WalksController < ApplicationController
   end
 
   def create
-    @walk = Walk.create!(walk_params)
-    # if @walk.save!
-    #   redirect_to walk_path(@walk)
-    # else
-    #   render "form_walk", status: :unprocessable_entity
-    # end
+    @walk = Walk.create(walk_params)
+    @walk.user_id = current_user.id
+    if @walk.save
+      redirect_to walk_path(@walk)
+    else
+      render "form_walk", status: :unprocessable_entity
+    end
   end
 
 
