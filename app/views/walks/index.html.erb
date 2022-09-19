@@ -11,7 +11,7 @@
     <% case %>
     <% when w.photos.present? %>
       <%  w.photos.each do |p| %>
-        <%= cl_image_tag p.key %>
+        <%= cl_image_tag p.key, height: 50, width: 50, crop: :fill %>
       <% end %>
     <% when w.num_km.present?  %>
       <%= w.num_km %>

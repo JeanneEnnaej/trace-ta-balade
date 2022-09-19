@@ -1,13 +1,15 @@
-<%= simple_form_for[user, walk] do |f| %>
-  <%= f.input :title %>
+<%= simple_form_for(@walk) do |f| %>
+   <%= f.input :title %>
   <%= f.input :num_km %>
   <%= f.input :duration %>
-  <%= f.input :ratting %>
+  <%= f.input :ratting, collection: [1, 2 , 3, 4, 5] %>
   <%= f.input :address%>
   <%= f.input :date %>
   <%= f.input :content %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.input :advantage_id, collection: Advantage.all, label: false %>
-  <%= f.input :disadvantage_id, collection: Disadvantage.all, label: false %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%#= f.select :advantage_id, collection: Advantage.all, label: false %>
+  <%#= f.select :disadvantage_id, collection: Disadvantage.all, label: false %>
   <%= f.button :submit %>
 <% end %>

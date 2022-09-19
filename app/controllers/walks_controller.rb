@@ -16,17 +16,16 @@ class WalksController < ApplicationController
     @walk = Walk.create(walk_params)
     @walk.user_id = current_user.id
     if @walk.save
-      redirect_to walk_path(@walk)
+      redirect_to walks_path
     else
       render "form_walk", status: :unprocessable_entity
     end
   end
 
-
   private
 
   def walk_params
-    params.require(:walk).permit(:title, :num_km ,:duration, :ratting, :address, :date, :content, :user_id, photos: [])
+    params.require(:walk).permit(:title, :num_km, :duration, :ratting, :address, :date, :content, :user_id, photos: [])
   end
 
   def set_walk
