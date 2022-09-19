@@ -22,6 +22,18 @@ class WalksController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+    @walk.destroy!
+
+    redirect_to walks_path, status: :see_other
+  end
+
   private
 
   def walk_params
@@ -29,6 +41,6 @@ class WalksController < ApplicationController
   end
 
   def set_walk
-    @walk = Walk.find(:id)
+    @walk = Walk.find(params[:id])
   end
 end

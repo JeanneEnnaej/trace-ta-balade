@@ -22,5 +22,7 @@
     <% when w.content.present? %>
       <%= w.content %>
     <% end %>
+    <%= link_to "Voir la balade", walk_path(w) %>
+    <%= link_to "Delete", walk_path(w), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   <% end %>
 <% end %>
