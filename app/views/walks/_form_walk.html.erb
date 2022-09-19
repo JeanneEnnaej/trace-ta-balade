@@ -7,7 +7,7 @@
   <%= f.input :date %>
   <%= f.input :content %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.input :disadvantages, collection: ["Parking", "Routes", "Chasse", "Fréquentation"]%>
-  <%= f.input :advantages, collection: ["Parking", "Routes", "Chasse", "Fréquentation"]%>
+  <%= f.input :advantage_id, collection: Advantage.all, label: false %>
+  <%= f.input :disadvantage_id, collection: Disadvantage.all, label: false %>
   <%= f.button :submit %>
 <% end %>

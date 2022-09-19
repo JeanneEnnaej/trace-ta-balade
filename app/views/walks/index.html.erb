@@ -3,5 +3,10 @@
 <% unless @walks == nil %>
   <% @walks.each do |w| %>
     <%= w.title %>
+    <% if w.photos.present? %>
+      <%  w.photos.each do |p| %>
+        <%= cl_image_tag p.key %>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>
