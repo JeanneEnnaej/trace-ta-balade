@@ -26,6 +26,9 @@ class WalksController < ApplicationController
   end
 
   def update
+    @walk.update(walk_params)
+
+    redirect_to walks_path
   end
 
   def destroy

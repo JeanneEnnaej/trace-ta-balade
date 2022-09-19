@@ -1,0 +1,12 @@
+<%= simple_form_for(@walk) do |f| %>
+   <%= f.input :title %>
+  <%= f.input :num_km %>
+  <%= f.input :duration %>
+  <%= f.input :ratting, collection: [1, 2 , 3, 4, 5] %>
+  <%= f.input :address%>
+  <%= f.input :date %>
+  <%= f.input :content %>
+  <%#= f.select :advantage_id, collection: Advantage.all, label: false %>
+  <%#= f.select :disadvantage_id, collection: Disadvantage.all, label: false %>
+  <%= f.button :submit %>
+<% end %>
