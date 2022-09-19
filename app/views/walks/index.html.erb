@@ -1,12 +1,26 @@
 <p>Bienvenue sur votre page <%= current_user.first_name %></p>
 <%= link_to "nouvelle balade", new_walk_path %>
+
+
+
 <% unless @walks == nil %>
   <% @walks.each do |w| %>
     <%= w.title %>
-    <% if w.photos.present? %>
+    <%= w.date %>
+    <%= w.address %>
+    <% case %>
+    <% when w.photos.present? %>
       <%  w.photos.each do |p| %>
         <%= cl_image_tag p.key %>
       <% end %>
+    <% when w.num_km.present?  %>
+      <%= w.num_km %>
+    <% when w.duration.present? %>
+      <%= w.duration %>
+    <% when w.ratting.present? %>
+      <%= w.ratting %>
+    <% when w.content.present? %>
+      <%= w.content %>
     <% end %>
   <% end %>
 <% end %>
