@@ -1,4 +1,4 @@
 class Disadvantage < ApplicationRecord
-  has_many :walks, through: :walk_disadvantage
+  has_many :walks, through: :walk_disadvantages
 
 end
