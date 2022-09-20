@@ -40,7 +40,7 @@ class WalksController < ApplicationController
   private
 
   def walk_params
-    params.require(:walk).permit(:title, :num_km, :duration, :ratting, :address, :date, :content, :user_id, photos: [])
+    params.require(:walk).permit(:title, :num_km, :duration, :ratting, :address, :date, :content, :user_id, advantages_attributes: [:id, :name], disadvantages_attributes: [:id, :name], photos: [])
   end
 
   def set_walk

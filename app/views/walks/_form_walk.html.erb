@@ -9,7 +9,7 @@
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%#= f.select :advantage_id, collection: Advantage.all, label: false %>
-  <%#= f.select :disadvantage_id, collection: Disadvantage.all, label: false %>
+  <%= f.association :advantages, as: :radio_buttons %>
+  <%= f.association :disadvantages, as: :radio_buttons %>
   <%= f.button :submit %>
 <% end %>

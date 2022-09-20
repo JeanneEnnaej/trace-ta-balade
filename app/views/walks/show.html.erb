@@ -1,1 +1,30 @@
 <p> Show de <%= @walk.title %></p>
+
+<%= @walk.title %>
+<%= @walk.date %>
+<%= @walk.address %>
+<% if @walk.photos.present? %>
+  <%  @walk.photos.each do |p| %>
+    <%= cl_image_tag p.key, height: 50, width: 50, crop: :fill %>
+  <% end %>
+<% end %>
+<% if @walk.num_km.present?  %>
+  <%= @walk.num_km %>
+<% end %>
+<% if @walk.duration.present? %>
+  <%= @walk.duration %>
+<% end %>
+<% if @walk.ratting.present? %>
+  <%= @walk.ratting %>
+<% end %>
+<% if @walk.content.present? %>
+  <%= @walk.content %>
+<% end %>
+<% unless @walk.advantages == nil %>
+  <% @walk.advantages.each do |a| %>
+    <%= a.name %>
+  <% end %>
+<% end %>
+<%= link_to "Modifie la balade", edit_walk_path(@walk) %>
+<%= link_to "Delete", walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%= link_to "Retourner à la liste", walks_path %>
