@@ -1,0 +1,17 @@
+.walks {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 16px;
+  row-gap: 16px;
+  justify-content: center;
+  .walk-card {
+    width: 30%;
+    height: 250px;
+    background-color: antiquewhite;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
