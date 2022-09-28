@@ -1,2 +1,13 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.my-container {
+
+  a {
+    text-decoration: none;
+  }
+
+  .new-walk {
+    color: $brown-primary;
+  }
+}
