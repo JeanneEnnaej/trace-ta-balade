@@ -1,8 +1,8 @@
 <%= render "navbar" %>
-<p>Bienvenue sur votre page <%= current_user.first_name %></p>
 
 
 <div class="my-container">
+  <p>Bienvenue sur votre page <%= current_user.first_name %></p>
   <%= link_to new_walk_path do %>
     <p class="new-walk"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
   <% end %>
@@ -10,28 +10,34 @@
     <% unless @walks == nil %>
       <% @walks.each do |w| %>
         <div class="walk-card">
-          <%= w.title %>
-          <% if w.photos.present? %>
-            <% w.photos.each do |p| %>
-              <%= cl_image_tag p.key, height: 50, width: 50, crop: :fill %>
+          <div class="img-card">
+            <% if w.photos.present? %>
+              <%= cl_image_tag w.photos.first.key %>
+            <% else %>
+              <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664348684/pexels-james-wheeler-1578750_bes1io.jpg" alt="image">
             <% end %>
-          <% end %>
-          <%= w.date %>
-          <%= w.address %>
-          <% if w.num_km.present? %>
-            <%= w.num_km %>
-          <% end %>
-          <% if w.duration.present? %>
-            <%= w.duration %>
-          <% end %>
-          <% if w.ratting.present? %>
-            <%= w.ratting %>
-          <% end %>
-          <%= link_to "Voir la balade", walk_path(w) %>
-          <%= link_to "Modifie la balade", edit_walk_path(w) %>
-          <%= link_to "Delete", walk_path(w), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
+          <div class="text-card">
+            <p><%= w.title %></p>
+            <p><%= w.address %></p>
+            <div class="num-card">
+              <% if w.num_km.present? %>
+                <p><i class="fa-sharp fa-solid fa-road"></i><%= w.num_km %>km</p>
+              <% end %>
+              <% if w.duration.present? %>
+                <p><i class="fa-solid fa-clock"></i><%= w.duration %>h</p>
+              <% end %>
+              <% if w.ratting.present? %>
+                <p><i class="fa-sharp fa-solid fa-star"></i><%= w.ratting %>/5</p>
+              <% end %>
+            </div>
+            <%= link_to "Voir la balade", walk_path(w) %>
+          </div>
         </div>
       <% end %>
     <% end %>
   </div>
+    <%= link_to new_walk_path do %>
+      <p class="new-walk"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
+    <% end %>
 </div>
