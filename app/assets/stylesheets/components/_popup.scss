@@ -1,0 +1,36 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  &.display-none {
+    display: none;
+  }
+
+  .popup-card {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 16px;
+    padding: 8px;
+    border-radius: 8px;
+    width: 50%;
+    height: 50%;
+  }
+
+  .cross {
+    cursor: pointer;
+    color: $green-primary;
+    font-size: 32px;
+    height: 32px;
+    &:hover {
+      color: black;
+    }
+  }
+}
