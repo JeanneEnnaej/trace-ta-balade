@@ -6,7 +6,7 @@
   <%= link_to new_walk_path do %>
     <p class="new-walk"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
   <% end %>
-  <div class="walks">
+  <div class="walks" >
     <% unless @walks == nil %>
       <% @walks.each do |w| %>
         <div class="walk-card">
@@ -22,7 +22,7 @@
             <p><%= w.address %></p>
             <div class="num-card">
               <% if w.num_km.present? %>
-                <p><i class="fa-sharp fa-solid fa-road"></i><%= w.num_km %>km</p>
+                <p><i class="fa-sharp fa-solid fa-road"></i><%= w.num_km.to_f %>km</p>
               <% end %>
               <% if w.duration.present? %>
                 <p><i class="fa-solid fa-clock"></i><%= w.duration %>h</p>
@@ -31,7 +31,7 @@
                 <p><i class="fa-sharp fa-solid fa-star"></i><%= w.ratting %>/5</p>
               <% end %>
             </div>
-            <%= link_to "Voir la balade", walk_path(w) %>
+            <%= link_to "Voir la balade", walk_path(w), target: :_blank %>
           </div>
         </div>
       <% end %>

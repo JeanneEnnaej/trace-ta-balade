@@ -1,0 +1,55 @@
+.show-container {
+  display: flex;
+
+  .show-card {
+    width: 50%;
+    height: 50vh;
+    background-color: $light-brown-primary;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    flex-direction: column;
+  }
+
+  .img-card {
+    width:100%;
+    height: 50%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .liste {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    p {
+      margin: 0;
+    }
+  }
+  .info {
+    width: 100%;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-around;
+
+  }
+  .details {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    column-gap: 36px;
+  }
+
+  .show-link {
+    display: flex;
+    column-gap: 36px;
+    a {
+      color: $green-primary;
+    }
+  }
+}
