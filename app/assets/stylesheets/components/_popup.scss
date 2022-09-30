@@ -28,7 +28,7 @@
   .cross {
     position: relative;
     top:-250px;
-    left: 420px;
+    left: 510px;
     cursor: pointer;
     color: $green-primary;
     font-size: 32px;
@@ -61,13 +61,25 @@
       background-color: $green-primary;
       color: white;
       border-radius: 25px;
+      margin-top: 16px;
     }
     #walk_title, #walk_num_km, #walk_duration, #walk_ratting, #walk_address, #walk_content {
       border-radius: 20px;
       padding-left: 12px;
+      border: 2px solid $green-primary;
     }
-    input#file-upload-button{
-      border-radius: 20px;
+    // input#walk_photos.file.optional{
+    //   border-radius: 20px;
+    // }
+    p {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    select {
+      .date{
+        border: 2px solid $green-primary;
+      }
     }
   }
 }
