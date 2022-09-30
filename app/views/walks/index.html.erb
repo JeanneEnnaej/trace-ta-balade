@@ -1,7 +1,7 @@
 <%= render "navbar" %>
 
 
-<div class="my-container" data-controller="show">
+<div class="my-container">
   <p>Bienvenue sur votre page <%= current_user.first_name %></p>
   <%= link_to new_walk_path do %>
     <p class="new-walk"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
@@ -31,13 +31,7 @@
                 <p><i class="fa-sharp fa-solid fa-star"></i><%= w.ratting %>/5</p>
               <% end %>
             </div>
-            <span data-action="click->show#showPopup">"Voir la balade"</span>
-          </div>
-        </div>
-        <div class="popup display-none" data-show-target="popup" >
-          <div class="popup-card">
-
-          <i class="fa-solid fa-xmark cross" data-action="click->show#showPopup"></i>
+            <%= link_to "Voir la balade", walk_path(w), target: :_blank %>
           </div>
         </div>
       <% end %>
