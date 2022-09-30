@@ -1,31 +1,66 @@
 <%= render "navbar" %>
-<p> Show de <%= @walk.title %></p>
+<div class="show-banner">
+  <p> Balade : <%= @walk.title %></p>
+</div>
 
-<%= @walk.title %>
-<%= @walk.date %>
-<%= @walk.address %>
-<% if @walk.photos.present? %>
-  <%  @walk.photos.each do |p| %>
-    <%= cl_image_tag p.key, height: 50, width: 50, crop: :fill %>
-  <% end %>
-<% end %>
-<% if @walk.num_km.present?  %>
-  <%= @walk.num_km %>
-<% end %>
-<% if @walk.duration.present? %>
-  <%= @walk.duration %>
-<% end %>
-<% if @walk.ratting.present? %>
-  <%= @walk.ratting %>
-<% end %>
-<% if @walk.content.present? %>
-  <%= @walk.content %>
-<% end %>
-<% unless @walk.advantages == nil %>
-  <% @walk.advantages.each do |a| %>
-    <%= a.name %>
-  <% end %>
-<% end %>
-<%= link_to "Modifie la balade", edit_walk_path(@walk) %>
-<%= link_to "Delete", walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-<%= link_to "Retourner à la liste", walks_path %>
+<div class="my-container">
+  <div class="show-container">
+    <div class="show-card">
+      <div class="img-card">
+        <% if @walk.photos.present? %>
+          <%  @walk.photos.each do |p| %>
+            <%= cl_image_tag p.key, height: 50, width: 50, crop: :fill %>
+          <% end %>
+        <% else %>
+          <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664348684/pexels-james-wheeler-1578750_bes1io.jpg" alt="image">
+        <% end %>
+      </div>
+      <div class="info">
+        <p>Balade du <%= @walk.date.strftime("%d/%m/%Y") %></p>
+        <p>Adresse : <%= @walk.address %></p>
+      </div>
+      <div class="details">
+        <% if @walk.num_km.present?  %>
+          <p><i class="fa-sharp fa-solid fa-road"></i> <%= @walk.num_km.to_f %>km</p>
+        <% end %>
+        <% if @walk.duration.present? %>
+          <p><i class="fa-solid fa-clock"></i> <%= @walk.duration %>h</p>
+        <% end %>
+        <% if @walk.ratting.present? %>
+          <p><i class="fa-sharp fa-solid fa-star"></i> <%= @walk.ratting %>/5</p>
+        <% end %>
+      </div>
+      <% if @walk.content.present? %>
+        <%= @walk.content %>
+      <% end %>
+
+      <div class="liste">
+        <div class="advantage">
+        <p> Les points positifs de la balade :</p>
+        <ul>
+          <% unless @walk.advantages == nil %>
+            <% @walk.advantages.each do |a| %>
+              <li><%= a.name %></li>
+            <% end %>
+          <% end %>
+        </ul>
+        </div>
+        <div class="disadvantage">
+          <p> Les points négatifs de la balade :</p>
+          <ul>
+            <% unless @walk.disadvantages == nil %>
+              <% @walk.disadvantages.each do |a| %>
+                <li><%= a.name %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="show-link">
+        <%= link_to "Modifier la balade", edit_walk_path(@walk) %>
+        <%= link_to "Supprimer", walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <%= link_to "Retourner à la liste", walks_path %>
+      </div>
+    </div>
+  </div>
+</div>
