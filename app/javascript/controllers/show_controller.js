@@ -11,15 +11,7 @@ export default class extends Controller {
   }
 
   showPopup() {
-    console.log(this.popupTarget.className)
-    if (this.popupTarget.className === "popup-display-none"){
-      this.popupTarget.classList.replace('popup-display-none','popup')
-      console.log(this.popupTarget.className)
-    }
-
+    this.popupTarget.classList.toggle("display-none");
   }
 
-  closePopup() {
-    this.popupTarget.classList.replace('popup','popup-display-none')
-  }
 }

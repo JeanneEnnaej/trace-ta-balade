@@ -1,15 +1,33 @@
-<%= simple_form_for(@walk) do |f| %>
-   <%= f.input :title %>
-  <%= f.input :num_km ,input_html: { min: '0', max: '9999', step: '0.5' }%>
-  <%= f.input :duration, input_html: { min: '0', max: '9999', step: '0.5' }  %>
-  <%= f.input :ratting, collection: [1, 2 , 3, 4, 5] %>
-  <%= f.input :address%>
-  <%= f.input :date %>
-  <%= f.input :content %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.association :advantages, as: :radio_buttons, select:{ multiple: true }  %>
-  <%= f.association :disadvantages, as: :radio_buttons %>
-  <%= f.button :submit %>
-<% end %>
+<div class= "form-walk">
+  <%= simple_form_for(walk) do |f| %>
+  <div class="info-form">
+    <div>
+      <p>Nom de la balade :</p>
+      <%= f.input :title, label: false %>
+      <p>Distance :</p>
+      <%= f.input :num_km ,input_html: { min: '0', max: '9999', step: '0.5' }, label: false%>
+      <p>Durée :</p>
+      <%= f.input :duration, input_html: { min: '0', max: '9999', step: '0.5' },label: false  %>
+      <p>Note :</p>
+      <%= f.input :ratting, collection: [1, 2 , 3, 4, 5], label: false %>
+      <p>Adresse :</p>
+      <%= f.input :address, label: false%>
+      <p>Date de la balade :</p>
+      <%= f.input :date, label: false %>
+    </div>
+    <div>
+      <p>Description :</p>
+      <%= f.input :content, label: false %>
+      <p>Photo(s)</p>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
+      <p>Points positifs :</p>
+      <%= f.association :advantages, as: :radio_buttons, select:{ multiple: true }, label: false  %>
+      <p>Points négatifs :</p>
+      <%= f.association :disadvantages, as: :radio_buttons, label: false %>
+    </div>
+  </div>
+      <%= f.button :submit, "Créer la balade" %>
+  <% end %>
+</div>
