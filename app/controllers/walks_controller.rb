@@ -3,6 +3,7 @@ class WalksController < ApplicationController
 
   def index
     @walks = Walk.where(user: current_user)
+    @walk = Walk.new
   end
 
   def show

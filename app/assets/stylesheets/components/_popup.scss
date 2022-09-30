@@ -9,7 +9,9 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
-
+  &.display-none {
+    display: none;
+  }
 
   .popup-card {
     background-color: white;
@@ -20,15 +22,52 @@
     border-radius: 8px;
     width: 50%;
     height: 50%;
+    position: absolute;
   }
 
   .cross {
+    position: relative;
+    top:-250px;
+    left: 420px;
     cursor: pointer;
     color: $green-primary;
     font-size: 32px;
     height: 32px;
     &:hover {
       color: black;
+    }
+  }
+  .form-walk {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .simple_from {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .info-form{
+      display: flex;
+      justify-content: center;
+      column-gap: 70px;
+      flex-direction: row;
+      height: 100%;
+      width: 100%;
+    }
+    .btn {
+      background-color: $green-primary;
+      color: white;
+      border-radius: 25px;
+    }
+    #walk_title, #walk_num_km, #walk_duration, #walk_ratting, #walk_address, #walk_content {
+      border-radius: 20px;
+      padding-left: 12px;
+    }
+    input#file-upload-button{
+      border-radius: 20px;
     }
   }
 }

@@ -1,11 +1,15 @@
 <%= render "navbar" %>
 
 
-<div class="my-container">
+<div class="my-container" data-controller="show">
   <p>Bienvenue sur votre page <%= current_user.first_name %></p>
-  <%= link_to new_walk_path do %>
-    <p class="new-walk"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
-  <% end %>
+  <div class="popup display-none" data-show-target="popup">
+    <div class="popup-card">
+      <%= render "form_walk", walk: @walk %>
+    </div>
+      <i class="fa-solid fa-xmark cross" data-action="click->show#showPopup"></i>
+  </div>
+  <p class="new-walk" data-action="click->show#showPopup"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
   <div class="walks" >
     <% unless @walks == nil %>
       <% @walks.each do |w| %>
@@ -37,7 +41,5 @@
       <% end %>
     <% end %>
   </div>
-    <%= link_to new_walk_path do %>
-      <p class="new-walk"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
-    <% end %>
+    <p class="new-walk" data-action="click->show#showPopup"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
 </div>
