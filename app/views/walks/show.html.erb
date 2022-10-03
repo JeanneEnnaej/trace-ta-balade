@@ -5,17 +5,56 @@
 
 <div class="my-container">
   <div class="show-container">
-    <div class="show-card">
+    <div class="show-card" data-controller="img">
       <div class="img-card">
         <% if @walk.photos.present? %>
-          <%  @walk.photos.each do |p| %>
-            <%= cl_image_tag p.key, height: 50, width: 50, crop: :fill %>
-          <% end %>
+          <span data-action="click->img#showPopup"><%= cl_image_tag @walk.photos.first.key %></span>
         <% else %>
-          <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664348684/pexels-james-wheeler-1578750_bes1io.jpg" alt="image">
+          <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664806325/Group_1_omxsxo.png" alt="image" data-action="click->img#showPopup">
         <% end %>
+        <div class="img-popup display-none" data-img-target="popup" >
+          <div class="img-popup-card">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <%= cl_image_tag @walk.photos.first.key, class:"d-block w-70 mx-auto"%>
+                </div>
+                <% if @walk.photos[1].present? %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag @walk.photos[1].key, class:"d-block w-70 mx-auto"%>
+                  </div>
+                <% end %>
+                <% if @walk.photos[2].present? %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag @walk.photos[2].key, class:"d-block w-70 mx-auto"%>
+                  </div>
+                <% end %>
+                <% if @walk.photos[3].present? %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag @walk.photos[3].key, class:"d-block w-70 mx-auto"%>
+                  </div>
+                <% end %>
+                <% if @walk.photos[4].present? %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag @walk.photos[4].key, class:"d-block w-70 mx-auto"%>
+                  </div>
+                <% end %>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <i class="fa-solid fa-xmark cross" data-action="click->img#showPopup"></i>
+        </div>
       </div>
       <div class="info">
+        <p>nombre de photos <%= @walk.photos.count %></p>
         <p>Balade du <%= @walk.date.strftime("%d/%m/%Y") %></p>
         <p>Adresse : <%= @walk.address %></p>
       </div>
