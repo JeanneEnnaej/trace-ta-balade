@@ -1,8 +1,9 @@
 <%= render "navbar" %>
-
+<div class="show-banner">
+  <p>Voici toutes vos balades <%= current_user.first_name %></p>
+</div>
 
 <div class="my-container" data-controller="show">
-  <p>Bienvenue sur votre page <%= current_user.first_name %></p>
   <div class="popup display-none" data-show-target="popup">
     <div class="popup-card">
       <%= render "form_walk", walk: @walk %>
