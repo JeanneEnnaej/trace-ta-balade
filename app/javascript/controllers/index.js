@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import ShowController from "./show_controller"
 application.register("show", ShowController)
+
+import ImgController from "./img_controller"
+application.register("img", ImgController)
