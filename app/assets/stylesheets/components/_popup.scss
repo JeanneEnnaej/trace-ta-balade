@@ -84,6 +84,14 @@
     .input {
       margin-bottom: 28px;
     }
+    input::file-selector-button {
+      background-color: $light-brown-primary;
+      color: black;
+      border: none;
+      border-radius: 25px;
+      padding: 8px 12px;
+  }
+
   }
   .radio_buttons{
     display: grid;
