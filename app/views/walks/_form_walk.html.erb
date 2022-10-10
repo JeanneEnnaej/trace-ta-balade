@@ -24,6 +24,8 @@
       <%= f.association :advantages, as: :radio_buttons, select:{ multiple: true }, label: false  %>
       <p>Points négatifs :</p>
       <%= f.association :disadvantages, as: :radio_buttons, label: false %>
+      <p>Lien externe :</p>
+      <%= f.input :link, label: false %>
     </div>
   </div>
       <%= f.button :submit, "Créer la balade" %>

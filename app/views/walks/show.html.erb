@@ -72,7 +72,9 @@
       <% if @walk.content.present? %>
         <%= @walk.content %>
       <% end %>
-
+      <% if @walk.link.present? %>
+        <%= link_to "Lien vers la rando", "#{@walk.link}", target: :_blank %>
+      <% end %>
       <div class="liste">
         <div class="advantage">
         <p> Les points positifs de la balade :</p>
