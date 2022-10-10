@@ -1,6 +1,8 @@
+p "début de la seed"
+
 p "creation des advantages"
 
-advantages = %w[ parking ombragé eau fréquentation ]
+advantages = %w[ parking ombragé eau fréquentation silencieux chemin ]
 
 advantages.each do |a|
   Advantage.create(
@@ -10,7 +12,7 @@ end
 
 p "creation des disadvantages"
 
-disadvantages = %w[ parking denivelé route fréquentation ]
+disadvantages = %w[ parking denivelé route fréquentation bruyant cailloux ]
 
 disadvantages.each do |d|
   Disadvantage.create(

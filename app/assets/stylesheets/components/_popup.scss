@@ -21,13 +21,13 @@
     padding: 8px;
     border-radius: 8px;
     width: 50%;
-    height: 50%;
+    height: 60%;
     position: absolute;
   }
 
   .cross {
     position: relative;
-    top:-250px;
+    top:-350px;
     left: 510px;
     cursor: pointer;
     color: $green-primary;
@@ -68,9 +68,7 @@
       padding-left: 12px;
       border: 2px solid $green-primary;
     }
-    // input#walk_photos.file.optional{
-    //   border-radius: 20px;
-    // }
+
     p {
       margin-top: 8px;
       margin-bottom: 8px;
@@ -80,6 +78,22 @@
       .date{
         border: 2px solid $green-primary;
       }
+    }
+  }
+  .right-content{
+    .input {
+      margin-bottom: 28px;
+    }
+  }
+  .radio_buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 6px;
+    label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
   }
 }
