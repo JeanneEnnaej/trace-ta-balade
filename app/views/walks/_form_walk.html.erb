@@ -18,14 +18,14 @@
       <%= f.input :content, label: false %>
     </div>
     <div class="right-content">
+      <p>Lien externe :</p>
+      <%= f.input :link, label: false %>
       <p>Photo(s)</p>
       <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
       <p>Points positifs :</p>
       <%= f.association :advantages, as: :radio_buttons, select:{ multiple: true }, label: false  %>
       <p>Points négatifs :</p>
       <%= f.association :disadvantages, as: :radio_buttons, label: false %>
-      <p>Lien externe :</p>
-      <%= f.input :link, label: false %>
     </div>
   </div>
       <%= f.button :submit, "Créer la balade" %>
