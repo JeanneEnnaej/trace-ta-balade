@@ -6,5 +6,5 @@ class Walk < ApplicationRecord
   has_many :disadvantages, through: :walk_disadvantages, dependent: :destroy
   has_many_attached :photos, dependent: :destroy
 
-  validates :title, :address, :date, presence: true
+  validates :title, :address, presence: true
 end
