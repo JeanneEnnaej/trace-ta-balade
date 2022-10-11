@@ -7,8 +7,11 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import ShowController from "./show_controller"
-application.register("show", ShowController)
-
 import ImgController from "./img_controller"
 application.register("img", ImgController)
+
+import MapController from "./map_controller"
+application.register("map", MapController)
+
+import ShowController from "./show_controller"
+application.register("show", ShowController)
