@@ -4,7 +4,7 @@ class WalksController < ApplicationController
   def index
     @walks = Walk.where(user: current_user)
     @walk = Walk.new
-    @markes = @walks.geocoded.map do |walk|
+    @markers = @walks.geocoded.map do |walk|
       {
         lat: walk.latitude,
         lng: walk.longitude
