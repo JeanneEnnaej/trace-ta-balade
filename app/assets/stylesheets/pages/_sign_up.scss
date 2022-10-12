@@ -1,4 +1,9 @@
 .sign-up-form {
+  background-image: linear-gradient(rgba(250, 250, 250, 0.8), rgba(250, 250, 250, 0.2)),url("https://res.cloudinary.com/dsp76osnf/image/upload/v1665569160/Capture_d_e%CC%81cran_2022-10-12_a%CC%80_12.05.50_g9hrvj.png") ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 72vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,6 +46,6 @@
 
   .connec {
     margin-top: 12px;
-    color: $green-primary
+    color: black;
   }
 }

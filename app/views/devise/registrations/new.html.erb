@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<div class="banner">
+<div class="show-banner">
   <h1>Trace ta balade</h1>
 </div>
 
@@ -45,7 +45,7 @@
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email" }, label: false%>
+                  input_html: { autocompxlete: "email" }, label: false%>
       <p>Mot de passe</p>
       <%= f.input :password,
                   required: true,
@@ -61,5 +61,5 @@
     </div>
   <% end %>
 
-  <%= link_to "Connexion", new_user_session_path, class: "connec"%>
+  <%= link_to "Vous avez déjà un compte ? Connectez vous !", new_user_session_path, class: "connec"%>
 </div>
