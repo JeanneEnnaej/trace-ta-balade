@@ -18,7 +18,7 @@
     margin-bottom: 6px;
     margin-top: 12px;
   }
-  input {
+  #user_first_name, #user_last_name, #user_address, #user_email, #user_password, #user_password_confirmation {
     border: 2px solid $green-primary;
   }
 
@@ -29,5 +29,18 @@
 
   h2 {
     margin-top: 12px;
+  }
+
+  input::file-selector-button {
+    background-color: $light-brown-primary;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 12px;
+  }
+
+  .connec {
+    margin-top: 12px;
+    color: $green-primary
   }
 }
