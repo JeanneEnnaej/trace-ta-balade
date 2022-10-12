@@ -1,21 +1,38 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
-  data: {turbo: false}) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<div class="navbar">
+  <div class="home-link">
+    <%= link_to root_path do %>
+      <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664291400/logo-brown_kvupnw.png" alt="logo">
+    <% end %>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+<div class="show-banner">
+  <h1>Trace ta balade</h1>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="sign-in-form">
+  <h2>Connectez vous</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+    data: {turbo: false}) do |f| %>
+    <div class="form-inputs">
+      <p>email</p>
+      <%= f.input :email,
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }, label: false %>
+      <p>Mot de passe</p>
+      <%= f.input :password,
+                  required: false,
+                  input_html: { autocomplete: "current-password" }, label: false %>
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Connexion" %>
+    </div>
+  <% end %>
+
+    <%= link_to "Vous n'avez pas de compte ? Inscrivezvous !", new_user_registration_path, class: "connec"%>
+
+</div>
