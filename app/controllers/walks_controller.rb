@@ -7,7 +7,8 @@ class WalksController < ApplicationController
     @markers = @walks.geocoded.map do |walk|
       {
         lat: walk.latitude,
-        lng: walk.longitude
+        lng: walk.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {walk: walk})
       }
     end
   end
