@@ -71,10 +71,10 @@
         <% end %>
       </div>
       <% if @walk.content.present? %>
-        <%= @walk.content %>
+        <span class="content-walk"><%= @walk.content %></span>
       <% end %>
       <% if @walk.link.present? %>
-        <%= link_to "Lien vers la rando", "#{@walk.link}", target: :_blank %>
+        <span class="extern-link2"><%= link_to "Lien vers la rando", "#{@walk.link}", target: :_blank %></span>
       <% end %>
       <div class="liste">
         <div class="advantage">
