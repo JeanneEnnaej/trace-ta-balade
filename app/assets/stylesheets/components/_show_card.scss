@@ -3,7 +3,7 @@
 
   .show-card {
     width: 50%;
-    height: 50vh;
+    height: 60vh;
     background-color: $light-brown-primary;
     border-radius: 25px;
     display: flex;
@@ -51,5 +51,15 @@
     a {
       color: $green-primary;
     }
+  }
+  .content-walk {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  .extern-link2{
+    a {
+      padding-top: 12px;
+    }
+
   }
 }

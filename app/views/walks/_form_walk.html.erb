@@ -15,7 +15,7 @@
       <p>Date de la balade :</p>
       <%= f.input :date, label: false, order: [:day, :month, :year], use_month_names:['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre','Decembre'] %>
       <p>Description :</p>
-      <%= f.input :content, label: false %>
+      <%= f.input :content, label: false, maxlength: 200 %>
     </div>
     <div class="right-content">
       <p>Lien externe :</p>
