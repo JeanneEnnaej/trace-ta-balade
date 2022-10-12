@@ -1,0 +1,33 @@
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .form-inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-actions {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  p {
+    margin-bottom: 6px;
+    margin-top: 12px;
+  }
+  input {
+    border: 2px solid $green-primary;
+  }
+
+  .btn {
+    margin-top: 12px;
+    background-color: $green-primary;
+  }
+
+  h2 {
+    margin-top: 12px;
+  }
+}
