@@ -9,9 +9,9 @@
     <% if current_user %>
       <%= current_user.first_name %>
       <% if current_user.photo.present? %>
-        <p> avatar<%= cl_image_tag current_user.photo.key %></p>
+        <%= cl_image_tag current_user.photo.key, class: "profil-picture" %>
       <% else %>
-        <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1663317287/35a1e6d69cf6924b6076d864a5d39e95_d9slf9.jpg">
+        <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1663317287/35a1e6d69cf6924b6076d864a5d39e95_d9slf9.jpg", class="profil-picture" >
       <% end %>
       <%= link_to "Mes balades", walks_path %>
       <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
