@@ -9,7 +9,7 @@ class WalksController < ApplicationController
         lat: walk.latitude,
         lng: walk.longitude,
         info_window: render_to_string(partial: "info_window", locals: {walk: walk}),
-        image_url: helpers.asset_url("logo-brown.png")
+        image_url: helpers.asset_url("green-logo.png")
       }
     end
   end
