@@ -16,11 +16,21 @@
   .img-card {
     width:100%;
     height: 50%;
-  }
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+    }
+    .indication {
+      background-color: rgba(250,250,250,0.5);
+      position: absolute;
+      top: 90%;
+      right: 25%;
+      z-index: auto;
+      padding: 0 6px;
+    }
   }
 
   .liste {
