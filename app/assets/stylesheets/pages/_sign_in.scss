@@ -18,6 +18,9 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    .btn:hover {
+      background-color: $light-brown-primary;
+    }
   }
   p {
     margin-bottom: 6px;
