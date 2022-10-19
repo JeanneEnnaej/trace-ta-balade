@@ -9,7 +9,7 @@
       <div class="img-card">
         <% if @walk.photos.present? %>
           <span data-action="click->img#showPopup"><%= cl_image_tag @walk.photos.first.key %></span>
-          <p class="indication"> Cliquez sur la photo pour voir toutes les photos</p>
+          <p class="indication">Cliquez sur la photo pour voir toutes les photos</p>
         <% else %>
           <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664806325/Group_1_omxsxo.png" alt="image" data-action="click->img#showPopup">
         <% end %>
