@@ -3,4 +3,10 @@
   height: 80vh;
   margin: 0 auto;
   margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  h2 {
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+  }
 }

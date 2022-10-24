@@ -4,7 +4,7 @@
   background-position: center;
   height: 75vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   a {
     background-color: $green-primary;
@@ -16,5 +16,9 @@
     text-decoration: none;
     color: white;
     font-size: 150%;
+  }
+  .fa-sharp{
+    font-size: 200%;
+    color: white;
   }
 }
