@@ -3,7 +3,9 @@
   background-size: cover;
   background-position: center;
   height: 75vh;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   a {
     background-color: $green-primary;
     padding-left: 1%;
@@ -13,5 +15,6 @@
     border-radius: 5px;
     text-decoration: none;
     color: white;
+    font-size: 150%;
   }
 }

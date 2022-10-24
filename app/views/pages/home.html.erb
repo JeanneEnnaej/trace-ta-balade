@@ -19,12 +19,14 @@
       <%= link_to walks_path do %>
         <p>Mes balades</p>
       <% end %>
-    <% else %>
-      <%= link_to new_user_session_path do %>
-        <p class="<%= "prod" if request.path == "/new_user_session" %>">Connexion</p>
-      <% end %>
-    <% end %>
     </div>
+    <% else %>
+    <div class="bg-btn-nav <%= "prod" if request.path == "/new_user_session"%>">
+      <%= link_to new_user_session_path do %>
+        <p>Connexion</p>
+      <% end %>
+    </div>
+    <% end %>
     <div class="bg-btn-nav <%= "prod" if request.path == "/contact"%>">
       <%= link_to root_path do %>
         <p class="<%= "prod" if request.path == "/contact" %>">Contact</p>
