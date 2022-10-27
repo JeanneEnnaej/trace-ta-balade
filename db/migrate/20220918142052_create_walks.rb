@@ -4,7 +4,7 @@ class CreateWalks < ActiveRecord::Migration[7.0]
       t.string :title
       t.integer :num_km
       t.integer :duration
-      t.integer :ratting
+      t.integer :rating
       t.string :address
       t.date :date
       t.text :content

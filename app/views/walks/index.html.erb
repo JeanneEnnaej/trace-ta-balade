@@ -33,8 +33,8 @@
                 <% if w.duration.present? %>
                   <p><i class="fa-solid fa-clock"></i><%= (w.duration/60) %>h</p>
                 <% end %>
-                <% if w.ratting.present? %>
-                  <p><i class="fa-sharp fa-solid fa-star"></i><%= w.ratting %>/5</p>
+                <% if w.rating.present? %>
+                  <p><i class="fa-sharp fa-solid fa-star"></i><%= w.rating %>/5</p>
                 <% end %>
               </div>
               <%= link_to "Voir la balade", walk_path(w), target: :_blank %>
