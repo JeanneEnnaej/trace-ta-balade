@@ -1,15 +1,38 @@
 <div class="navbar">
-  <div class="home-link">
-    <%= link_to root_path do %>
-      <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664291400/logo-brown_kvupnw.png" alt="logo">
-    <% end %>
+  <div class="nom-logo">
+    <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1666616208/logo-triangle_wkbdhf.png" alt="logo">
   </div>
 
-
-</div>
-
-<div class="show-banner">
-  <h1>Trace ta balade</h1>
+  <div class="buttons-navbar">
+    <div class="bg-btn-nav <%= "prod" if request.path == "/"%>">
+      <%= link_to root_path do %>
+        <p>Home</p>
+      <% end %>
+    </div>
+    <div class="bg-btn-nav <%= "prod" if request.path == "/public-walks"%>">
+      <%= link_to root_path do %>
+        <p>Les balades</p>
+      <% end %>
+    </div>
+    <% if current_user %>
+    <div class="bg-btn-nav <%= "prod" if request.path == "/walks"%>">
+      <%= link_to walks_path do %>
+        <p>Mes balades</p>
+      <% end %>
+    </div>
+    <% else %>
+    <div class="bg-btn-nav <%= "prod" if request.path == "/users/sign_up"%>">
+      <%= link_to new_user_session_path do %>
+        <p>Connexion</p>
+      <% end %>
+    </div>
+    <% end %>
+    <div class="bg-btn-nav <%= "prod" if request.path == "/contact"%>">
+      <%= link_to root_path do %>
+        <p class="<%= "prod" if request.path == "/contact" %>">Contact</p>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 
@@ -48,4 +71,16 @@
   <% end %>
 
   <%= link_to "Vous avez déjà un compte ? Connectez vous !", new_user_session_path, class: "connec"%>
+</div>
+
+<div class="footer">
+  <%= link_to "https://www.instagram.com/les_aleas_d_une_vie_de_chien/?hl=fr", target: :_blank do %>
+    <i class="fa-brands fa-instagram"></i>
+  <% end %>
+  <%= link_to "https://github.com/JeanneEnnaej", target: :_blank do %>
+    <i class="fa-brands fa-github"></i>
+  <% end %>
+  <%= link_to "https://www.linkedin.com/in/jeanne-desmier-6061a3a7/", target: :_blank do %>
+    <i class="fa-brands fa-linkedin"></i>
+  <% end %>
 </div>

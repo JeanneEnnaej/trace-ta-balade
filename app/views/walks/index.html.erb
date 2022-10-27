@@ -1,53 +1,57 @@
 <%= render "navbar" %>
-<div class="show-banner">
-  <p>Voici toutes vos balades <%= current_user.first_name %></p>
-</div>
+
 
 <div class="my-container" data-controller="show">
-  <div class="card-container">
-    <div class="popup display-none" data-show-target="popup">
-      <div class="popup-card">
-        <%= render "form_walk", walk: @walk %>
+ <h4><i class="fa-solid fa-paw"></i> Tu trouvera ici toutes les balades que tu as enregistré sur Trace ta balade <i class="fa-solid fa-paw"></i></h2>
+  <div class="card-map-container">
+    <div class="card-container">
+      <div class="popup display-none" data-show-target="popup">
+        <div class="popup-card">
+          <%= render "form_walk", walk: @walk %>
+        </div>
+          <i class="fa-solid fa-xmark cross" data-action="click->show#showPopup"></i>
       </div>
-        <i class="fa-solid fa-xmark cross" data-action="click->show#showPopup"></i>
-    </div>
-    <p class="new-walk" data-action="click->show#showPopup"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
-    <div class="walks" >
-      <% unless @walks == nil %>
-        <% @walks.each do |w| %>
-          <div class="walk-card">
-            <div class="img-card">
-              <% if w.photos.present? %>
-                <%= cl_image_tag w.photos.first.key %>
-              <% else %>
-                <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664806325/Group_1_omxsxo.png" alt="image">
-              <% end %>
-            </div>
-            <div class="text-card">
-              <p><%= w.title %></p>
-              <p class="address"><%= w.address %></p>
-              <div class="num-card">
-                <% if w.num_km.present? %>
-                  <p><i class="fa-sharp fa-solid fa-road"></i><%= w.num_km.to_f %>km</p>
-                <% end %>
-                <% if w.duration.present? %>
-                  <p><i class="fa-solid fa-clock"></i><%= (w.duration/60) %>h</p>
-                <% end %>
-                <% if w.rating.present? %>
-                  <p><i class="fa-sharp fa-solid fa-star"></i><%= w.rating %>/5</p>
+      <p class="new-walk" data-action="click->show#showPopup"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
+      <div class="walks" >
+        <% unless @walks == nil %>
+          <% @walks.each do |w| %>
+            <div class="walk-card">
+              <div class="img-card">
+                <% if w.photos.present? %>
+                  <%= cl_image_tag w.photos.first.key %>
+                <% else %>
+                  <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664806325/Group_1_omxsxo.png" alt="image">
                 <% end %>
               </div>
-              <%= link_to "Voir la balade", walk_path(w), target: :_blank %>
+              <div class="text-card">
+                <p><%= w.title %></p>
+                <p class="address"><%= w.address %></p>
+                <div class="num-card">
+                  <% if w.num_km.present? %>
+                    <p><i class="fa-sharp fa-solid fa-road"></i><%= w.num_km.to_f %>km</p>
+                  <% end %>
+                  <% if w.duration.present? %>
+                    <p><i class="fa-solid fa-clock"></i><%= (w.duration/60) %>h</p>
+                  <% end %>
+                  <% if w.rating.present? %>
+                    <p><i class="fa-sharp fa-solid fa-star"></i><%= w.rating %>/5</p>
+                  <% end %>
+                </div>
+                <%= link_to "Voir la balade", walk_path(w), target: :_blank %>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+        <p class="new-walk" data-action="click->show#showPopup"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
     </div>
-      <p class="new-walk" data-action="click->show#showPopup"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
+    <div class="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
-  <div class="map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+  <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete}%>
 </div>
+
+<%= render "footer" %>

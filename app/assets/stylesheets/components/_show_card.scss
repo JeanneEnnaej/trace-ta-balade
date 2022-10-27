@@ -1,27 +1,25 @@
 .show-container {
-  display: flex;
-  width: 50vw;
   .show-card {
     width: 100%;
     height: 60vh;
-    background-color: $light-brown-primary;
-    border-radius: 25px;
+    background-color:$green-primary;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: black;
-    flex-direction: column;
+
   }
 
   .img-card {
-    width:100%;
-    height: 50%;
+    width: 40vw;
+    height: 100%;
     position: relative;
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-
+      border-radius: 5px 0 0 5px;
     }
     .indication {
       background-color: rgba(250,250,250,0.5);
@@ -54,15 +52,11 @@
     display: flex;
     justify-content: center;
     column-gap: 36px;
-  }
-
-  .show-link {
-    display: flex;
-    column-gap: 36px;
-    a {
-      color: $green-primary;
+    .fa-solid {
+      color:$taupe-primary;
     }
   }
+
   .content-walk {
     margin-left: 12px;
     margin-right: 12px;
@@ -72,5 +66,18 @@
       padding-top: 12px;
     }
 
+  }
+
+}
+.show-link {
+  display: flex;
+  justify-content: center;
+  column-gap: 10%;
+  margin-bottom: 4.5%;
+  a {
+    background-color: $taupe-primary;
+    color: white;
+    padding: 1% 4%;
+    border-radius: 5px;
   }
 }

@@ -6,8 +6,13 @@
 @import "sign_in";
 
 .my-container {
-  // width: 95vw;
-  // display: flex;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 2%;
+  text-align: center;
+  .card-map-container {
+    display: flex;
+  }
   .card-container {
     width: 50vw;
   }
@@ -17,6 +22,7 @@
   }
 
   .new-walk {
+    margin-left: 5%;
     width: 20%;
     cursor: pointer;
     color: $green-primary;
@@ -25,5 +31,8 @@
     &:hover {
       color: black;
     }
+  }
+  .fa-solid{
+    color: $green-primary;
   }
 }
