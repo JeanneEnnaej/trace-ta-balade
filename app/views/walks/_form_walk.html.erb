@@ -7,9 +7,9 @@
       <p>Distance :</p>
       <%= f.input :num_km ,input_html: { min: '0', max: '9999', step: '0.5' }, label: false%>
       <p>Durée :</p>
-      <%= f.input :duration, input_html: { min: '0', max: '9999', step: '0.5' },label: false  %>
+      <%= f.input :duration, label: false  %>
       <p>Note /5 :</p>
-      <%= f.input :ratting, collection: [1, 2 , 3, 4, 5], label: false %>
+      <%= f.input :rating, collection: [1, 2 , 3, 4, 5], label: false %>
       <p>* Adresse :</p>
       <%= f.input :address,
       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
