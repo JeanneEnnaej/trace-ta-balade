@@ -1,14 +1,5 @@
-<%# <p> Créer une nouvelle balade</p> %>
+<p> Créer une nouvelle balade</p>
 
-<%#= render "form_walk", walk: @walk %>
+<%= render "form_walk", walk: @walk %>
 
-<%#= link_to 'Retour à ma page', walks_path %>
-
-<%= form_with model: @restaurant do |f| %>
-
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :rating %>
-  <%= f.number_field :rating %>
-  <%= f.submit %>
-<% end %>
+<%= link_to 'Retour à ma page', walks_path %>

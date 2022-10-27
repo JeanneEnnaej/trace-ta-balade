@@ -1,9 +1,8 @@
 <%= render "navbar" %>
-<div class="show-banner">
-  <p> Balade : <%= @walk.title %></p>
-</div>
+
 
 <div class="my-container">
+  <h4> La balade : "<%= @walk.title %>"</h3>
   <div class="show-container">
     <div class="show-card" data-controller="img">
       <div class="img-card">
@@ -56,54 +55,59 @@
           </div>
         <% end %>
       </div>
-      <div class="info">
-        <p>Balade du<%= @walk.date.strftime("%d/%m/%Y") %></p>
-        <p>Adresse : <%= @walk.address %></p>
-      </div>
-      <div class="details">
-        <% if @walk.num_km.present?  %>
-          <p><i class="fa-sharp fa-solid fa-road"></i> <%= @walk.num_km.to_f %>km</p>
-        <% end %>
-        <% if @walk.duration.present? %>
-          <p><i class="fa-solid fa-clock"></i> <%= @walk.duration %>h</p>
-        <% end %>
-        <% if @walk.rating.present? %>
-          <p><i class="fa-sharp fa-solid fa-star"></i> <%= @walk.rating %>/5</p>
-        <% end %>
-      </div>
-      <% if @walk.content.present? %>
-        <span class="content-walk"><%= @walk.content %></span>
-      <% end %>
-      <% if @walk.link.present? %>
-        <span class="extern-link2"><%= link_to "Lien vers la rando", "#{@walk.link}", target: :_blank %></span>
-      <% end %>
-      <div class="liste">
-        <div class="advantage">
-        <p> Les points positifs de la balade :</p>
-        <ul>
-          <% unless @walk.advantages == nil %>
-            <% @walk.advantages.each do |a| %>
-              <li><%= a.name %></li>
-            <% end %>
-          <% end %>
-        </ul>
+      <div class="show-card-text">
+        <div class="info">
+          <p>Balade du<%= @walk.date.strftime("%d/%m/%Y") %></p>
+          <p>Adresse : <%= @walk.address %></p>
         </div>
-        <div class="disadvantage">
-          <p> Les points négatifs de la balade :</p>
+        <div class="details">
+          <% if @walk.num_km.present?  %>
+            <p><i class="fa-sharp fa-solid fa-road"></i> <%= @walk.num_km.to_f %>km</p>
+          <% end %>
+          <% if @walk.duration.present? %>
+            <p><i class="fa-solid fa-clock"></i> <%= @walk.duration %>h</p>
+          <% end %>
+          <% if @walk.rating.present? %>
+            <p><i class="fa-sharp fa-solid fa-star"></i> <%= @walk.rating %>/5</p>
+          <% end %>
+        </div>
+        <% if @walk.content.present? %>
+          <span class="content-walk"><%= @walk.content %></span>
+        <% end %>
+        <br>
+        <% if @walk.link.present? %>
+          <span class="extern-link2"><%= link_to "Lien vers la rando", "#{@walk.link}", target: :_blank %></span>
+        <% end %>
+        <div class="liste">
+          <div class="advantage">
+          <p> Les points positifs de la balade :</p>
           <ul>
-            <% unless @walk.disadvantages == nil %>
-              <% @walk.disadvantages.each do |a| %>
+            <% unless @walk.advantages == nil %>
+              <% @walk.advantages.each do |a| %>
                 <li><%= a.name %></li>
               <% end %>
             <% end %>
           </ul>
+          </div>
+          <div class="disadvantage">
+            <p> Les points négatifs de la balade :</p>
+            <ul>
+              <% unless @walk.disadvantages == nil %>
+                <% @walk.disadvantages.each do |a| %>
+                  <li><%= a.name %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="show-link">
-        <%= link_to "Modifier la balade", edit_walk_path(@walk) %>
-        <%= link_to "Supprimer", walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        <%= link_to "Retourner à la liste", walks_path %>
       </div>
     </div>
   </div>
+  <div class="show-link">
+    <%= link_to "Modifier la balade", edit_walk_path(@walk) %>
+    <%= link_to "Supprimer la balade", walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <%= link_to "Retourner à la liste", walks_path %>
+  </div>
 </div>
+
+<%= render "footer" %>
