@@ -65,7 +65,7 @@
             <p><i class="fa-sharp fa-solid fa-road"></i> <%= @walk.num_km.to_f %>km</p>
           <% end %>
           <% if @walk.duration.present? %>
-            <p><i class="fa-solid fa-clock"></i> <%= @walk.duration %>h</p>
+            <p><i class="fa-solid fa-clock"></i> <%= ((@walk.duration)/60.to_f) %>h</p>
           <% end %>
           <% if @walk.rating.present? %>
             <p><i class="fa-sharp fa-solid fa-star"></i> <%= @walk.rating %>/5</p>

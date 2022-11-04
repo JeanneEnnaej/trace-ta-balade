@@ -31,7 +31,7 @@
                     <p><i class="fa-sharp fa-solid fa-road"></i><%= w.num_km.to_f %>km</p>
                   <% end %>
                   <% if w.duration.present? %>
-                    <p><i class="fa-solid fa-clock"></i><%= (w.duration/60) %>h</p>
+                    <p><i class="fa-solid fa-clock"></i><%= (w.duration/60.to_f) %>h</p>
                   <% end %>
                   <% if w.rating.present? %>
                     <p><i class="fa-sharp fa-solid fa-star"></i><%= w.rating %>/5</p>
