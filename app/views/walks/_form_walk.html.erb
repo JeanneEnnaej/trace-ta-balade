@@ -32,7 +32,7 @@
       <p>Photo(s)</p>
       <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
       <p>Points positifs :</p>
-      <%= f.association :advantages, input_html: { multiple: true }, label: false  %>
+      <%= f.association :advantages, as: :radio_buttons, label: false  %>
       <p>Points négatifs :</p>
       <%= f.association :disadvantages, as: :radio_buttons, label: false %>
     </div>
