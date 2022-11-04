@@ -5,13 +5,16 @@
       <p>* Nom de la balade :</p>
       <%= f.input :title, label: false, placeholder: "" %>
       <p>Distance :</p>
-      <%= f.input :num_km ,input_html: { min: '0', max: '9999', step: '0.5' }, label: false%>
+      <%= f.input :num_km ,label: false, collection: [["1km", 1000], ["1,5km", 1500], ["2km", 2000], ["2,5km", 2500],
+      ["3km", 3000], ["3,5km", 3500], ["4km", 4000], ["4,5km", 4500],
+      ["5km", 5000], ["5,5km", 5500], ["6km", 6000], ["6,5km", 6500],
+      ["7km", 7000], ["7,5km", 7500], ["8km", 8000], ["8,5km", 8500]]%>
       <p>Durée :</p>
       <%= f.input :duration, label: false,
       collection: [["1h", 60], ["1h15", 69], ["1h30", 78], ["1h45", 87],
       ["2h", 120], ["2h15", 129], ["2h30", 138], ["2h45", 147],
       ["3h", 180], ["3h15", 189], ["3h30", 198], ["3h45", 207],
-      ["4h", 140], ["4h15", 249], ["4h30", 258], ["4h45", 267]] %>
+      ["4h", 240], ["4h15", 249], ["4h30", 258], ["4h45", 267]] %>
       <p>Note /5 :</p>
       <%= f.input :rating, collection: [1, 2 , 3, 4, 5], label: false %>
       <p>* Adresse :</p>

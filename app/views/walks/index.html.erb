@@ -28,7 +28,7 @@
                 <p class="address"><%= w.address %></p>
                 <div class="num-card">
                   <% if w.num_km.present? %>
-                    <p><i class="fa-sharp fa-solid fa-road"></i><%= w.num_km.to_f %>km</p>
+                    <p><i class="fa-sharp fa-solid fa-road"></i><%= (w.num_km)/1000.to_f %>km</p>
                   <% end %>
                   <% if w.duration.present? %>
                     <p><i class="fa-solid fa-clock"></i><%= (w.duration/60.to_f) %>h</p>
