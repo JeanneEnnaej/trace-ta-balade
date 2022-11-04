@@ -48,6 +48,9 @@
     display: flex;
     justify-content: center;
     column-gap: 25%;
+    .fa-solid {
+      color:$taupe-primary;
+    }
 
     p{
       display: flex;
@@ -64,4 +67,5 @@
     font-size: 14px;
     margin-top: 8px;
   }
+
 }
