@@ -1,0 +1,56 @@
+<%= render "navbar" %>
+
+
+<div class="my-container" >
+ <h4><i class="fa-solid fa-paw"></i> Tu trouvera ici toutes les balades public de Trace ta balade <i class="fa-solid fa-paw"></i></h2>
+  <div class="card-map-container">
+    <div class="card-container">
+      <div class="walks" >
+        <% unless @walks == nil %>
+          <% @walks.each do |w| %>
+            <div class="walk-card">
+              <div class="img-card">
+                <% if w.photos.present? %>
+                  <%= cl_image_tag w.photos.first.key %>
+                <% else %>
+                  <p class="status"><%= w.status %></p>
+                  <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664806325/Group_1_omxsxo.png" alt="image">
+                <% end %>
+              </div>
+              <div class="text-card">
+                <p><%= w.title %></p>
+                <p class="address"><%= w.address %></p>
+                <div class="num-card">
+                  <% if w.num_km.present? %>
+                    <p><i class="fa-sharp fa-solid fa-road"></i><%= (w.num_km)/1000.to_f %>km</p>
+                  <% end %>
+                  <% if w.duration.present? %>
+                    <p><i class="fa-solid fa-clock"></i><%= (w.duration/60.to_f) %>h</p>
+                  <% end %>
+                  <% if w.rating.present? %>
+                    <p><i class="fa-sharp fa-solid fa-star"></i><%= w.rating %>/5</p>
+                  <% end %>
+                </div>
+                <%= link_to "Voir la balade", walk_path(w), target: :_blank %>
+
+                <div>
+                  <%= link_to walk_path(w),data: {turbo_method: :delete, turbo_confirm: "Etes vous sur?"} do %>
+                    <p><i class="fa-solid fa-trash-can"></i></p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+    <div class="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+</div>
+
+<%= render "footer" %>
