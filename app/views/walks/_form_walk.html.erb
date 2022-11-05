@@ -35,6 +35,8 @@
       <%= f.association :advantages, as: :radio_buttons, label: false  %>
       <p>Points négatifs :</p>
       <%= f.association :disadvantages, as: :radio_buttons, label: false %>
+      <p>Statut de la balade :</p>
+      <%= f.input :status ,as: :radio_buttons, collection: ["public", "privée"], label: false %>
     </div>
   </div>
       <%= f.button :submit, "Créer la balade" %>

@@ -10,7 +10,7 @@
       <% end %>
     </div>
     <div class="bg-btn-nav <%= "prod" if request.path == "/public-walks"%>">
-      <%= link_to root_path do %>
+      <%= link_to publicwalks_path do %>
         <p>Les balades</p>
       <% end %>
     </div>
@@ -57,8 +57,38 @@
   </div>
   <h2>Quelques balades présentes sur Trace ta balade :</h2>
   <div class="sample-card">
-  <%= image_tag("https://res.cloudinary.com/dsp76osnf/image/upload/v1666685449/card-example_vrjfmj.png") %>
-  </div>
+    <div class="walks" >
+        <% unless @walks == nil %>
+          <% @walks.each do |w| %>
+            <div class="walk-card">
+              <div class="img-card">
+                <% if w.photos.present? %>
+                  <%= cl_image_tag w.photos.first.key %>
+                <% else %>
+                  <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664806325/Group_1_omxsxo.png" alt="image">
+                <% end %>
+              </div>
+              <div class="text-card">
+                <p><%= w.title %></p>
+                <p class="address"><%= w.address %></p>
+                <div class="num-card">
+                  <% if w.num_km.present? %>
+                    <p><i class="fa-sharp fa-solid fa-road"></i><%= (w.num_km)/1000.to_f %>km</p>
+                  <% end %>
+                  <% if w.duration.present? %>
+                    <p><i class="fa-solid fa-clock"></i><%= (w.duration/60.to_f) %>h</p>
+                  <% end %>
+                  <% if w.rating.present? %>
+                    <p><i class="fa-sharp fa-solid fa-star"></i><%= w.rating %>/5</p>
+                  <% end %>
+                </div>
+                <%= link_to "Voir la balade", walk_path(w), target: :_blank %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   <div class="review">
     <h2>Vos témoignages</h2>
     <p><%= Review.order('RANDOM()').first.content %></p>
