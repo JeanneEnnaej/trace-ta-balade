@@ -40,7 +40,9 @@
                 <%= link_to "Voir la balade", walk_path(w), target: :_blank %>
                 <%= w.status %>
                 <div>
-                  <%= link_to "Supprimer la balade", walk_path(w), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                  <%= link_to walk_path(w),data: {turbo_method: :delete, turbo_confirm: "Etes vous sur?"} do %>
+                    <p><i class="fa-solid fa-trash-can"></i></p>
+                  <% end %>
                 </div>
               </div>
             </div>

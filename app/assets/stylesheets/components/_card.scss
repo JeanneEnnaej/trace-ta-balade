@@ -42,6 +42,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    .fa-solid{
+      color: $taupe-primary;
+    }
   }
 
   .num-card {
