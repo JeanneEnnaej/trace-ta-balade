@@ -5,6 +5,8 @@
   row-gap: 8px;
   justify-content: center;
   margin-bottom: 16px;
+  margin-left: 2%;
+  margin-right: 2%;
   .walk-card {
     width: 22vw;
     height: 18vh;
@@ -14,9 +16,19 @@
     justify-content: center;
     align-items: center;
     color: $light-brown-primary;
-    flex-basis: 200px;
+    flex-basis: 300px;
     flex-shrink: 1;
     flex-grow: 1;
+    &.public{
+      background-color: $taupe-primary;
+      color: $green-primary;
+      .fa-solid {
+        color:$green-primary;
+      }
+      a {
+        color: black;
+      }
+    }
 
 
     .address{
