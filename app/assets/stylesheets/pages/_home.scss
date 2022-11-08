@@ -6,14 +6,14 @@
   flex-direction: column;
   h2 {
     align-self: center;
-    font-size: 30px;
+    font-size: 4.5vh;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 5%;
   }
   .arg {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     column-gap: 2%;
     margin-bottom: 5%;
     .arg-bis{
@@ -29,9 +29,11 @@
     }
     p{
       text-align: center;
+      font-size: 1.7vh;
     }
   }
   .sample-card {
+    flex-wrap: wrap;
     align-self: center;
   }
   .review{
@@ -52,7 +54,7 @@
       align-self: center;
       text-align: center;
       width: 70%;
-      font-size: 150%;
+      font-size: 2vh;
     }
 
   }

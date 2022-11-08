@@ -5,14 +5,14 @@
   background-color: $taupe-primary;
   display: flex;
   justify-content: center;
-  padding: 0 24px;
+  padding: 0;
 
   .nom-logo {
     display: flex;
     flex-direction: column;
     align-items: center;
     img {
-      width: 70%;
+      width: 10vh;
     }
   }
 
@@ -37,7 +37,7 @@
     }
     p {
       color: white;
-      font-size: 25px;
+      font-size: 2vh;
       font-family: 'Roboto', sans-serif;
       margin: 0;
       text-align: center;
