@@ -5,7 +5,7 @@ class PublicwalksController < ApplicationController
       {
         lat: walk.latitude,
         lng: walk.longitude,
-        # info_window: render_to_string(partial: "info_window", locals: {walk: walk}),
+        info_window: render_to_string(partial: "info_window", locals: {walk: walk}),
         image_url: helpers.asset_url("green-logo.png")
       }
     end
