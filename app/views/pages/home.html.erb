@@ -60,11 +60,12 @@
     <div class="walks" >
         <% unless @walks == nil %>
           <% @walks.each do |w| %>
-            <div class="walk-card">
+            <div class="walk-card <%= "public" if w.status == "public"%>">
               <div class="img-card">
                 <% if w.photos.present? %>
                   <%= cl_image_tag w.photos.first.key %>
                 <% else %>
+                  <p class="status"><%= w.status %></p>
                   <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664806325/Group_1_omxsxo.png" alt="image">
                 <% end %>
               </div>
