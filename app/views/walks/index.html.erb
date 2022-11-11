@@ -18,10 +18,14 @@
             <div class="walk-card <%= "public" if w.status == "public"%>">
               <div class="img-card">
                 <% if w.photos.present? %>
-                  <p class="status"><%= w.status if w.status.present?%></p>
+                  <% if w.status.present? %>
+                    <p class="status"><%= w.status%></p>
+                  <% end %>
                   <%= cl_image_tag w.photos.first.key %>
                 <% else %>
-                    <p class="status"><%= w.status if w.status.present?%></p>
+                    <% if w.status.present? %>
+                      <p class="status"><%= w.status%></p>
+                    <% end %>
                   <img src="https://res.cloudinary.com/dsp76osnf/image/upload/v1664806325/Group_1_omxsxo.png" alt="image">
                 <% end %>
               </div>
