@@ -14,6 +14,14 @@
     width: 40%;
     height: 100%;
     position: relative;
+    .status {
+      position: absolute;
+      left : 2%;
+      top : 2%;
+      background-color: $green-primary;
+      padding: 1% 2%;
+      border-radius: 5px;
+    }
 
     img {
       border-radius: 5px 0 0 5px;
