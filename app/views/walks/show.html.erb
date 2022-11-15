@@ -1,14 +1,20 @@
 <%= render "navbar" %>
 
 
-<div class="my-container">
+<div class="my-container" data-controller="show">
   <h4> La balade : "<%= @walk.title %>"</h3>
   <div class="show-container">
+    <div class="popup display-none" data-show-target="popup">
+      <div class="popup-card">
+        <%= render "form_edit_walk", walk: @walk %>
+      </div>
+        <i class="fa-solid fa-xmark cross" data-action="click->show#showPopup"></i>
+    </div>
     <div class="show-card" data-controller="img">
       <div class="img-card">
         <% if @walk.photos.present? %>
           <% if @walk.status.present? %>
-                    <p class="status"><%= @walk.status%></p>
+            <p class="status"><%= @walk.status%></p>
           <% end %>
           <span data-action="click->img#showPopup"><%= cl_image_tag @walk.photos.first.key %></span>
           <p class="indication">Cliquez sur la photo pour voir toutes les photos</p>
@@ -111,7 +117,7 @@
     </div>
   </div>
   <div class="show-link">
-    <%= link_to "Modifier la balade", edit_walk_path(@walk) %>
+    <p class="edit-walk" data-action="click->show#showPopup">Modifier la balade</p>
     <%= link_to "Supprimer la balade", walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     <%= link_to "Retourner à la liste", walks_path %>
   </div>
