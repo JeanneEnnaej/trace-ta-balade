@@ -2,7 +2,7 @@
   <%= simple_form_for(walk) do |f| %>
   <div class="info-form">
     <div>
-      <p>* Nom de la balade :</p>
+      <p>* Nom de la balade : </p>
       <%= f.input :title, label: false, placeholder: "" %>
       <p>Distance :</p>
       <%= f.input :num_km ,label: false, collection: [["1km", 1000], ["1,5km", 1500], ["2km", 2000], ["2,5km", 2500],

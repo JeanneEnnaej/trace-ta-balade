@@ -87,6 +87,13 @@
   justify-content: center;
   column-gap: 10%;
   margin-bottom: 4.5%;
+  .edit-walk {
+    background-color: $taupe-primary;
+    color: white;
+    padding: 1% 4%;
+    border-radius: 5px;
+    margin-bottom: 0;
+  }
   a {
     background-color: $taupe-primary;
     color: white;
