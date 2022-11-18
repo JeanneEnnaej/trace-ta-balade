@@ -12,6 +12,14 @@ class WalksController < ApplicationController
         image_url: helpers.asset_url("green-logo.png")
       }
     end
+    # @homemarker = current_user.geocoded.map do |home|
+    #   {
+    #     lat: home.latitude,
+    #     lng: home.longitude,
+    #     # info_window: render_to_string(partial: "info_window", locals: {walk: walk}),
+    #     image_url: helpers.asset_url("logo-brown.png")
+    #   }
+    # end
   end
 
   def show
