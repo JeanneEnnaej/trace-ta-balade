@@ -1,4 +1,5 @@
 class PublicwalksController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index ]
   def index
     @walks = Walk.where(status: "public")
     @markers = @walks.geocoded.map do |walk|
