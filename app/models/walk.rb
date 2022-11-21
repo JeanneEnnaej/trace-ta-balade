@@ -6,19 +6,12 @@ class Walk < ApplicationRecord
   has_many :disadvantages, through: :walk_disadvantages, dependent: :destroy
   has_many_attached :photos, dependent: :destroy
 
-  validates :title, :address, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  # validate :image_size_validation
-  validate :validate_images
+  validates :title, :address, presence: true
+  validates :photos, limit: { min: 0, max: 3 , message: 'is too large' }
+  validates :photos, attached: true, content_type: [:png, :jpg, :jpeg]
+  validates :photos, attached: true, size: { between: 1.kilobyte..10.megabytes }
 
-  # def image_size_validation
-  #   errors[:photos] << "Les photos sont trop lourdes, >10Mo" if photos.size > 80.megabytes
-  # end
 
-  def validate_images
-    return if photos.count <= 5
-
-    errors.add(:images, 'Tu ne peux ajouter que 5 photos')
-  end
 end
