@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 120vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   &.display-none {
@@ -19,7 +19,7 @@
     justify-content: space-between;
     column-gap: 16px;
     padding: 8px;
-    border-radius: 8px;
+    border-radius: 5px;
     width: 50%;
     height: 60%;
     position: absolute;
