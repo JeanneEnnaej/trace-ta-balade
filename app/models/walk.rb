@@ -12,6 +12,6 @@ class Walk < ApplicationRecord
   validates :photos, limit: { min: 0, max: 3 , message: 'is too large' }
   validates :photos, attached: true, content_type: [:png, :jpg, :jpeg]
   validates :photos, attached: true, size: { between: 1.kilobyte..10.megabytes }
-
+  validates :content, length: { maximum: 900}
 
 end
