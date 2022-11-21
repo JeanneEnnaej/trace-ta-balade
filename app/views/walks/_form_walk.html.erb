@@ -29,12 +29,12 @@
     <div class="right-content">
       <p>Lien externe :</p>
       <%= f.input :link, label: false %>
-      <p>Photo(s)</p>
+      <p>Photo(s) (3 max)</p>
       <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
       <p>Points positifs :</p>
-      <%= f.association :advantages, label: false  %>
+      <%= f.association :advantages, as: :radio_buttons, label: false  %>
       <p>Points négatifs :</p>
-      <%= f.association :disadvantages,  label: false %>
+      <%= f.association :disadvantages, as: :radio_buttons, label: false %>
       <p>Statut de la balade :</p>
       <%= f.input :status ,as: :radio_buttons, collection: ["public", "privée"], label: false %>
     </div>
