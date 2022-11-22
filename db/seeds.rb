@@ -27,7 +27,7 @@ disadvantages.each do |d|
 end
 
 p "creation des temoignages"
-reviews = ["Plus besoin d'ouvrir 2à onglets différents sur pleins de sites pour choisir sa balade",
+reviews = ["Plus besoin d'ouvrir 20 onglets différents sur pleins de sites pour choisir sa balade",
   "J'aime la possibilité de joindre un lien externe", "Vivement les nouvelles fonctionnalités !"]
 
 reviews.each do |r|
