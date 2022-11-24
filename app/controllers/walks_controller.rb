@@ -32,7 +32,7 @@ class WalksController < ApplicationController
   def create
     @walk = Walk.create(walk_params)
     @walk.user_id = current_user.id
-    if @walk.save
+    if @walk.save!
       redirect_to walk_path(@walk)
     else
       redirect_to walks_path
