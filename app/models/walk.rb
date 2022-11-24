@@ -11,6 +11,6 @@ class Walk < ApplicationRecord
   validates :title, :address, presence: true
   validates :photos, limit: { min: 0, max: 3 } # rend photo obligatoire
   validates :photos, attached: true, content_type: [:png, :jpg, :jpeg]
-  validates :photos, attached: true, size: { between: 1.kilobyte..10.megabytes }
+  validates :photos, attached: true, size: { between: ((1.kilobyte)..(10.megabytes)) }
   validates :content, length: { maximum: 900 }
 end
