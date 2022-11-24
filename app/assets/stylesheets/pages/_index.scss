@@ -12,9 +12,13 @@
 
   .card-map-container {
     display: flex;
+    margin-top: 1%;
   }
   .card-container {
     width: 50vw;
+    .abc {
+      margin-top: 20px;
+    }
   }
   a {
     text-decoration: none;
@@ -24,6 +28,7 @@
   .new-walk {
     margin-left: 5%;
     width: 20%;
+    margin-bottom: 2%;
     cursor: pointer;
     color: $green-primary;
     font-size: 16px;
@@ -41,6 +46,10 @@
     position: sticky;
     top: 0;
     margin-bottom: 2%;
-    margin-top: 1.5%;
+    margin-top: 2%;
   }
+}
+
+.card-container.abc {
+  margin-top: 1.5%;
 }
