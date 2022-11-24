@@ -9,7 +9,7 @@
   margin-right: 2%;
   .walk-card {
     width: 22vw;
-    height: 18vh;
+    height: 20vh;
     background-color: $green-primary;
     border-radius: 5px;
     display: flex;
@@ -21,9 +21,9 @@
     flex-grow: 1;
     &.public{
       background-color: $taupe-primary;
-      color: $green-primary;
+      color: #D4CEBC;
       .fa-solid {
-        color:$green-primary;
+        color:#D4CEBC;
       }
       a {
         color: black;
