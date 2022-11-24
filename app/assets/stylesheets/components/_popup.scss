@@ -30,11 +30,11 @@
     top:-28%;
     left: 24%;
     cursor: pointer;
-    color: $green-primary;
-    font-size: 32px;
-    height: 32px;
-    &:hover {
-      color: black;
+      color: $green-primary;
+      font-size: 32px;
+      height: 32px;
+      &:hover {
+        color: black;
     }
   }
   .form-walk {
@@ -60,11 +60,11 @@
     .btn {
       background-color: $green-primary;
       color: white;
-      border-radius: 25px;
+      border-radius: 5px;
       margin-top: 16px;
     }
     #walk_title, #walk_num_km, #walk_duration, #walk_rating, #walk_address, #walk_content, #walk_link {
-      border-radius: 20px;
+      border-radius: 5px;
       padding-left: 12px;
       border: 2px solid $green-primary;
     }
@@ -88,7 +88,7 @@
       background-color: $light-brown-primary;
       color: black;
       border: none;
-      border-radius: 25px;
+      border-radius: 5px;
       padding: 8px 12px;
   }
 

@@ -32,9 +32,9 @@
       <p>Photo(s) (3 max)</p>
       <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
       <p>Points positifs :</p>
-      <%= f.association :advantages, as: :radio_buttons, label: false  %>
+      <%= f.collection_check_boxes :advantage_ids, Advantage.all, :id, :name, label: false  %>
       <p>Points négatifs :</p>
-      <%= f.association :disadvantages, as: :radio_buttons, label: false %>
+      <%= f.collection_check_boxes :disadvantage_ids, Disadvantage.all, :id, :name, label: false  %>
       <p>Statut de la balade :</p>
       <%= f.input :status ,as: :radio_buttons, collection: ["public", "privée"], label: false %>
     </div>
