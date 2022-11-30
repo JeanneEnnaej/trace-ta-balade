@@ -18,9 +18,8 @@
       <p>Note /5 :</p>
       <%= f.input :rating, collection: [1, 2 , 3, 4, 5], label: false %>
       <p>* Adresse :</p>
-      <%= f.input :address,
-      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, label: false%>
+      <%= f.input :address, label: false %>
+
       <p>Date de la balade :</p>
       <%= f.input :date, label: false, order: [:day, :month, :year], use_month_names:['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre','Decembre'] %>
       <p>Description :</p>
@@ -32,9 +31,9 @@
       <p>Photo(s)</p>
       <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
       <p>Points positifs :</p>
-      <%= f.association :advantages, as: :radio_buttons, label: false  %>
+      <%= f.collection_check_boxes :advantage_ids, Advantage.all, :id, :name, label: false  %>
       <p>Points négatifs :</p>
-      <%= f.association :disadvantages, as: :radio_buttons, label: false %>
+      <%= f.collection_check_boxes :disadvantage_ids, Disadvantage.all, :id, :name, label: false  %>
       <p>Statut de la balade :</p>
       <%= f.input :status ,as: :radio_buttons, collection: ["public", "privée"], label: false %>
     </div>
