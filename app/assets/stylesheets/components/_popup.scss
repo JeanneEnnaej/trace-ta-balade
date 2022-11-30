@@ -66,7 +66,7 @@
     #walk_title, #walk_num_km, #walk_duration, #walk_rating, #walk_address, #walk_content, #walk_link {
       border-radius: 5px;
       padding-left: 12px;
-      border: 2px solid $green-primary;
+      border: 2px solid black;
     }
 
     p {
@@ -80,6 +80,11 @@
       }
     }
   }
+  .left-content {
+    p {
+      color: $green-primary;
+    }
+  }
   .right-content{
     .input {
       margin-bottom: 28px;
@@ -90,18 +95,32 @@
       border: none;
       border-radius: 5px;
       padding: 8px 12px;
-  }
-
-  }
-  .radio_buttons{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 6px;
-    label {
+    }
+    .positif {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .negatif {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .collection_check_boxes {
+      margin-left: 10px;
+    }
+    p {
+      color: $green-primary;
+    }
+    .input.radio_buttons.optional.walk_status {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      justify-content: space-around;
+    }
+    #walk_status_public {
+      margin-right: 10px;
+    }
+    #walk_status_privée {
+      margin-right: 10px;
+
     }
   }
+
 }

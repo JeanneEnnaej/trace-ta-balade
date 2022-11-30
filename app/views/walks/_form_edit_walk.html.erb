@@ -1,7 +1,7 @@
 <div class= "form-walk">
   <%= simple_form_for(walk) do |f| %>
   <div class="info-form">
-    <div>
+    <div class="left-content">
       <p>* Nom de la balade : </p>
       <%= f.input :title, label: false, placeholder: "" %>
       <p>Distance :</p>
@@ -28,12 +28,16 @@
     <div class="right-content">
       <p>Lien externe :</p>
       <%= f.input :link, label: false %>
-      <p>Photo(s)</p>
+      <p>Photo(s) (3 max)</p>
       <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
       <p>Points positifs :</p>
-      <%= f.collection_check_boxes :advantage_ids, Advantage.all, :id, :name, label: false  %>
+      <div class="positif">
+        <%= f.collection_check_boxes :advantage_ids, Advantage.all, :id, :name, label: false %>
+      </div>
       <p>Points négatifs :</p>
-      <%= f.collection_check_boxes :disadvantage_ids, Disadvantage.all, :id, :name, label: false  %>
+      <div class="negatif">
+        <%= f.collection_check_boxes :disadvantage_ids, Disadvantage.all, :id, :name, label: false  %>
+      </div>
       <p>Statut de la balade :</p>
       <%= f.input :status ,as: :radio_buttons, collection: ["public", "privée"], label: false %>
     </div>
