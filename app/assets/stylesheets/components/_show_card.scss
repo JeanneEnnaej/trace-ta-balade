@@ -5,9 +5,17 @@
     background-color:$green-primary;
     border-radius: 5px;
     display: flex;
-    align-items: center;
     color: black;
+    font-size:120%;
 
+  }
+
+  .show-card-text{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .img-card {
@@ -42,16 +50,22 @@
 
 
   .liste {
+    margin-top: 3%;
     width: 100%;
     display: flex;
     justify-content: space-around;
     p {
       margin: 0;
     }
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr ;
+      list-style-type: none;
+    }
   }
   .info {
     width: 100%;
-    margin-top: 8px;
+    margin-top: 3%;
     display: flex;
     justify-content: space-around;
 
@@ -60,25 +74,19 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    column-gap: 36px;
+    column-gap: 10%;
+    margin-top: 3%;
     .fa-solid {
       color:$taupe-primary;
     }
   }
 
   .content-walk {
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
     margin-left: 12px;
     margin-right: 12px;
-  }
-  .extern-link2{
-    a {
-      padding-top: 12px;
-    }
-
-  }
-
-  .show-card-text{
-    width: 60%;
   }
 
 }
