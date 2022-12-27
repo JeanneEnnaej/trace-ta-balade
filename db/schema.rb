@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_05_155721) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_27_092141) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -93,6 +93,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_155721) do
     t.index ["walk_id"], name: "index_walk_disadvantages_on_walk_id"
   end
 
+  create_table "walk_reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "walk_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "rating"
+    t.index ["walk_id"], name: "index_walk_reviews_on_walk_id"
+  end
+
   create_table "walks", force: :cascade do |t|
     t.string "title"
     t.integer "num_km"
@@ -117,5 +126,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_155721) do
   add_foreign_key "walk_advantages", "walks"
   add_foreign_key "walk_disadvantages", "disadvantages"
   add_foreign_key "walk_disadvantages", "walks"
+  add_foreign_key "walk_reviews", "walks"
   add_foreign_key "walks", "users"
 end

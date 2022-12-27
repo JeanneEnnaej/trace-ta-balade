@@ -80,8 +80,15 @@
           <% if @walk.duration.present? %>
             <p><i class="fa-solid fa-clock"></i> <%= ((@walk.duration)/60.to_f) %>h</p>
           <% end %>
-          <% if @walk.rating.present? %>
-            <p><i class="fa-sharp fa-solid fa-star"></i> <%= @walk.rating %>/5</p>
+          <% if current_user.id == @walk.user_id %>
+            <% if @walk.rating.present? %>
+              <p>Note perso :<i class="fa-sharp fa-solid fa-star"></i> <%= @walk.rating %>/5</p>
+              <p>Note publique :<i class="fa-sharp fa-solid fa-star"></i><%= @average_rating.round(1) %>/5</p>
+            <% end %>
+          <% else %>
+             <% if @walk.rating.present? %>
+              <p>Note publique :<i class="fa-sharp fa-solid fa-star"></i><%= @average_rating.round(1) %>/5</p>
+            <% end %>
           <% end %>
         </div>
         <% if @walk.content.present? %>
@@ -115,9 +122,23 @@
         </div>
       </div>
     </div>
+    <div class="walk-review">
+      <h4>Commentaires</h4>
+      <% if @walk.walk_reviews == [] %>
+        <p>Il n'y a pas encore de commentaire sur cette balade, lancez vous !</p>
+      <% else %>
+        <ul>
+          <% @walk.walk_reviews.each do |walk_review| %>
+            <p><li><%= walk_review.content %> / note : <%= walk_review.rating %></li></p>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
   </div>
+
   <div class="show-link">
     <p class="edit-walk" data-action="click->show#showPopup">Modifier la balade</p>
+    <%= link_to "Noter la balade", new_walk_walk_review_path(@walk) %>
     <% if current_user.id == @walk.user_id %>
       <%= link_to "Supprimer la balade", walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     <% end %>
