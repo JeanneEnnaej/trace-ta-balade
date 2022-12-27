@@ -14,17 +14,20 @@
 
   .card-map-container {
     display: flex;
-    margin-top: 1%;
+
   }
   .card-container {
     width: 50vw;
-    .abc {
-      margin-top: 20px;
-    }
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.4%;
   }
   a {
     text-decoration: none;
-
+    color: $green-primary;
+    text-align: start;
+    margin-left: 2%;
+    margin-bottom: 0.5%;
   }
 
   .new-walk {
