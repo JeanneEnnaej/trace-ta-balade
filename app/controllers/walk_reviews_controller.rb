@@ -8,7 +8,7 @@ class WalkReviewsController < ApplicationController
   def create
     @walk_review = WalkReview.new(walk_review_params)
     @walk_review.walk = @walk
-    if @walk_review.save
+    if @walk_review.save!
       redirect_to walk_path(@walk)
     else
       render :new, status: :unprocessable_entity
@@ -19,7 +19,6 @@ class WalkReviewsController < ApplicationController
     @walk_review = WalkReview.find(params[:id])
     @walk_review.destroy
     redirect_to walk_path(@walk_review.walk), status: :see_other
-
   end
 
   private

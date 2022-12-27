@@ -80,8 +80,11 @@
           <% if @walk.duration.present? %>
             <p><i class="fa-solid fa-clock"></i> <%= ((@walk.duration)/60.to_f) %>h</p>
           <% end %>
-          <% if @walk.rating.present? %>
-            <p><i class="fa-sharp fa-solid fa-star"></i> <%= @walk.rating %>/5</p>
+          <% if current_user.id == @walk.user_id %>
+            <% if @walk.rating.present? %>
+              <p>Note perso :<i class="fa-sharp fa-solid fa-star"></i> <%= @walk.rating %>/5</p>
+              <p>Note publique :<i class="fa-sharp fa-solid fa-star"></i><%= @average_rating %>/5</p>
+            <% end %>
           <% end %>
         </div>
         <% if @walk.content.present? %>
@@ -124,7 +127,7 @@
     <% end %>
   </ul>
 
-
+  <%# <%= render "walk_reviews/form_walk_review", walk: @walk, walk_review: @walk_review %>
 
   <div class="show-link">
     <p class="edit-walk" data-action="click->show#showPopup">Modifier la balade</p>

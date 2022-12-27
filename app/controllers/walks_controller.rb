@@ -23,6 +23,7 @@ class WalksController < ApplicationController
   end
 
   def show
+    @average_rating = average_rating(@walk)
   end
 
   def new
@@ -55,6 +56,14 @@ class WalksController < ApplicationController
     @walk.destroy!
 
     redirect_to walks_path, status: :see_other
+  end
+
+  def average_rating(walk)
+    average_rating = 0
+    WalkReview.where(walk_id: walk.id).each do |walk_review|
+      average_rating += walk_review.rating
+    end
+    average_rating = average_rating.to_f / WalkReview.where(walk_id: walk.id).count.to_f
   end
 
   private

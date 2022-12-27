@@ -1,3 +1,5 @@
+<%= render "walks/navbar" %>
+
 <h1>Qu'avez vous pensé de la balade <%= @walk.title %></h1>
 
 <%= simple_form_for [@walk, @walk_review] do |f| %>
@@ -9,3 +11,6 @@
 <% end %>
 
 <%= link_to "Retourner sur la balade", walk_path(@walk) %>
+
+
+<%= render "walks/footer" %>
