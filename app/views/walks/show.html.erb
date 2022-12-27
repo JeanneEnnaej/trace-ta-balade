@@ -137,7 +137,7 @@
   </div>
 
   <div class="show-link">
-    <p class="edit-walk" data-action="click->show#showPopup">Modifier la balade</p>
+    <%= link_to "Modifier la balade", edit_walk_path(@walk) %>
     <%= link_to "Noter la balade", new_walk_walk_review_path(@walk) %>
     <% if current_user.id == @walk.user_id %>
       <%= link_to "Supprimer la balade", walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>

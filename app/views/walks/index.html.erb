@@ -5,7 +5,7 @@
  <h4><i class="fa-solid fa-paw"></i> Tu trouvera ici toutes les balades que tu as enregistré sur <em>Trace ta balade</em> <i class="fa-solid fa-paw"></i></h2>
   <div class="card-map-container">
     <div class="card-container">
-      <%= link_to "+ Nouvelle balade +", new_walk_path %>
+      <span class="add-walk"><%= link_to "+ Nouvelle balade +", new_walk_path %></span>
       <div class="walks" >
         <% unless @walks == nil %>
           <% @walks.each do |w| %>
