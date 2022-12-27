@@ -1,5 +1,5 @@
 class WalkReviewsController < ApplicationController
-  before_action :set_walk, only: [:new, :create]
+  before_action :set_walk, only: [:new, :create, :destroy]
 
   def new
     @walk_review = WalkReview.new
@@ -25,7 +25,7 @@ class WalkReviewsController < ApplicationController
   private
 
   def walk_review_params
-    params.require(:walk_review).permit(:rating, :content)
+    params.require(:walk_review).permit(:rating, :content, :walk_id)
   end
 
   def set_walk

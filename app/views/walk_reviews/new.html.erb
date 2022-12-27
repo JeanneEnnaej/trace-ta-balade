@@ -1,2 +1,11 @@
-<h1>Walkreviews#new</h1>
-<p>Find me in app/views/walkreviews/new.html.erb</p>
+<h1>Qu'avez vous pensé de la balade <%= @walk.title %></h1>
+
+<%= simple_form_for [@walk, @walk_review] do |f| %>
+  <p>Commentaire :</p>
+  <%= f.input :content %>
+  <p>Note /5 :</p>
+  <%= f.input :rating, collection: [1, 2 , 3, 4, 5], label: false %>
+  <%= f.button :submit, "Envoyer" %>
+<% end %>
+
+<%= link_to "Retourner sur la balade", walk_path(@walk) %>
