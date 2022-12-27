@@ -1,16 +1,18 @@
 <%= render "walks/navbar" %>
 
-<h1>Qu'avez vous pensé de la balade <%= @walk.title %></h1>
+<div class="review-container">
+  <h1>Qu'avez vous pensé de la balade "<%= @walk.title %>"</h1>
 
-<%= simple_form_for [@walk, @walk_review] do |f| %>
-  <p>Commentaire :</p>
-  <%= f.input :content %>
-  <p>Note /5 :</p>
-  <%= f.input :rating, collection: [1, 2 , 3, 4, 5], label: false %>
-  <%= f.button :submit, "Envoyer" %>
-<% end %>
+  <%= simple_form_for [@walk, @walk_review] do |f| %>
+    <p>Commentaire :</p>
+    <%= f.input :content, label: false  %>
+    <p>Note /5 :</p>
+    <%= f.input :rating, collection: [1, 2 , 3, 4, 5], label: false %>
+    <%= f.button :submit, "Envoyer" %>
+  <% end %>
 
-<%= link_to "Retourner sur la balade", walk_path(@walk) %>
+  <%= link_to "Retourner sur la balade", walk_path(@walk) %>
+</div>
 
 
 <%= render "walks/footer" %>

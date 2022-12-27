@@ -83,7 +83,11 @@
           <% if current_user.id == @walk.user_id %>
             <% if @walk.rating.present? %>
               <p>Note perso :<i class="fa-sharp fa-solid fa-star"></i> <%= @walk.rating %>/5</p>
-              <p>Note publique :<i class="fa-sharp fa-solid fa-star"></i><%= @average_rating %>/5</p>
+              <p>Note publique :<i class="fa-sharp fa-solid fa-star"></i><%= @average_rating.round(1) %>/5</p>
+            <% end %>
+          <% else %>
+             <% if @walk.rating.present? %>
+              <p>Note publique :<i class="fa-sharp fa-solid fa-star"></i><%= @average_rating.round(1) %>/5</p>
             <% end %>
           <% end %>
         </div>
@@ -118,16 +122,19 @@
         </div>
       </div>
     </div>
+    <div class="walk-review">
+      <h4>Commentaires</h4>
+      <% if @walk.walk_reviews == [] %>
+        <p>Il n'y a pas encore de commentaire sur cette balade, lancez vous !</p>
+      <% else %>
+        <ul>
+          <% @walk.walk_reviews.each do |walk_review| %>
+            <p><li><%= walk_review.content %> / note : <%= walk_review.rating %></li></p>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
   </div>
-
-  <p>Commentaires</p>
-  <ul>
-    <% @walk.walk_reviews.each do |walk_review| %>
-      <li><%= walk_review.content %> / note : <%= walk_review.rating %></li>
-    <% end %>
-  </ul>
-
-  <%# <%= render "walk_reviews/form_walk_review", walk: @walk, walk_review: @walk_review %>
 
   <div class="show-link">
     <p class="edit-walk" data-action="click->show#showPopup">Modifier la balade</p>
