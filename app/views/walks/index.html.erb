@@ -12,6 +12,7 @@
         <i class="fa-solid fa-xmark cross" data-action="click->show#showPopup"></i>
       </div>
       <p class="new-walk" data-action="click->show#showPopup"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
+      <%= link_to "Nouvelle balade", new_walk_path %>
       <div class="walks" >
         <% unless @walks == nil %>
           <% @walks.each do |w| %>

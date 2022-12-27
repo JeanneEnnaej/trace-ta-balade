@@ -1,5 +1,13 @@
-<p> Créer une nouvelle balade</p>
+<%= render "navbar" %>
 
-<%= render "form_walk", walk: @walk %>
+<div class="new-container">
+  <h4>Créer une nouvelle balade</h4>
 
-<%= link_to 'Retour à ma page', walks_path %>
+  <%= render "form_walk", walk: @walk %>
+
+  <%= link_to 'Retour à ma page', walks_path %>
+
+</div>
+
+
+<%= render "footer" %>
