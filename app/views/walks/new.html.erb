@@ -22,20 +22,6 @@
       ["4h", 240], ["4h15", 249], ["4h30", 258], ["4h45", 267]] %>
       <p>Note /5 :</p>
       <%= f.input :rating, collection: [1, 2 , 3, 4, 5], label: false %>
-      <p>* Adresse de départ :</p>
-      <%= f.input :address,
-      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, label: false%>
-
-
-      <%= f.fields_for :steps do |p| %>
-        <p>Nom de l'étape:</p>
-        <%= p.input :name, label: false  %>
-        <p>Latitude:</p>
-        <%= p.input :latitude, label: false  %>
-        <p>Longitude:</p>
-        <%= p.input :longitude, label: false  %>
-      <% end %>
 
       <p>Date de la balade :</p>
       <%= f.input :date, label: false, order: [:day, :month, :year], use_month_names:['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre','Decembre'] %>
@@ -57,6 +43,31 @@
       </div>
       <p>Statut de la balade :</p>
       <%= f.input :status ,as: :radio_buttons, collection: ["public", "privée"], label: false %>
+    </div>
+    <div class="right-content">
+      <p>* Adresse de départ :</p>
+      <%= f.input :address,
+      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, label: false%>
+
+
+
+      <div data-controller="insert-step">
+        <div data-insert-step-target="item">
+          <p id="myList">
+          <%= f.fields_for :steps do |p| %>
+            <p>Nom de l'étape:</p>
+            <%= p.input :name, label: false  %>
+            <p>Latitude:</p>
+            <%= p.input :latitude, label: false  %>
+            <p>Longitude:</p>
+            <%= p.input :longitude, label: false  %>
+          <% end %>
+          <p data-action="click->insert-step#add">Ajouter une étape</p>
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
       <%= f.button :submit, "Créer la balade" %>
