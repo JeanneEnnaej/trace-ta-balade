@@ -4,12 +4,6 @@
 <div class="my-container" data-controller="show">
   <h4> La balade : "<%= @walk.title %>"</h3>
   <div class="show-container">
-    <div class="popup display-none" data-show-target="popup">
-      <div class="popup-card">
-        <%= render "form_edit_walk", walk: @walk %>
-      </div>
-        <i class="fa-solid fa-xmark cross" data-action="click->show#showPopup"></i>
-    </div>
     <div class="show-card" data-controller="img">
       <div class="img-card">
         <% if @walk.photos.present? %>
@@ -83,10 +77,8 @@
           <% if current_user.id == @walk.user_id %>
             <% if @walk.rating.present? %>
               <p>Note perso :<i class="fa-sharp fa-solid fa-star"></i> <%= @walk.rating %>/5</p>
-              <p>Note publique :<i class="fa-sharp fa-solid fa-star"></i><%= @average_rating.round(1) %>/5</p>
             <% end %>
-          <% else %>
-             <% if @walk.rating.present? %>
+            <% if @average_rating.nan? == false %>
               <p>Note publique :<i class="fa-sharp fa-solid fa-star"></i><%= @average_rating.round(1) %>/5</p>
             <% end %>
           <% end %>
@@ -135,6 +127,7 @@
       <% end %>
     </div>
   </div>
+
 
   <div class="show-link">
     <%= link_to "Modifier la balade", edit_walk_path(@walk) %>

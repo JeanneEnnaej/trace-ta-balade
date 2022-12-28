@@ -1,5 +1,5 @@
 <div class= "form-walk">
-  <%= simple_form_for(walk) do |f| %>
+  <%= simple_form_for(walk, step) do |f| %>
   <div class="info-form">
     <div class="left-content">
       <p>* Nom de la balade :</p>
@@ -22,7 +22,7 @@
       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
       wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, label: false%>
       <p>Ajouter des étapes :</p>
-      <%= f.input :steps.name, label: false %>
+      <%= f.input :step.latitude, label: false %>
       <p>Date de la balade :</p>
       <%= f.input :date, label: false, order: [:day, :month, :year], use_month_names:['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre','Decembre'] %>
       <p>Description :</p>

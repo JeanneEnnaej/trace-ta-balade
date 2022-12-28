@@ -8,6 +8,8 @@ class Walk < ApplicationRecord
   has_many :walk_reviews, dependent: :destroy
   has_many :steps, dependent: :destroy
 
+  accepts_nested_attributes_for :steps
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   validates :title, :address, presence: true

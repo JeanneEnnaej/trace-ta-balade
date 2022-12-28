@@ -28,6 +28,7 @@ class WalksController < ApplicationController
 
   def new
     @walk = Walk.new
+    @walk.steps.build
   end
 
   def create
@@ -69,7 +70,8 @@ class WalksController < ApplicationController
   private
 
   def walk_params
-    params.require(:walk).permit(:title, :num_km, :duration, :rating, :address, :date, :content, :user_id, :status, :link, advantage_ids: [], disadvantage_ids: [], photos: [])
+    params.require(:walk).permit(:title, :num_km, :duration, :rating, :address, :date, :content, :user_id, :status,
+    :link, steps: [:name, :latitude, :longitude], advantage_ids: [], disadvantage_ids: [], photos: [])
   end
 
   def set_walk
