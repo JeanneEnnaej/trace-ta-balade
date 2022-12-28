@@ -1,7 +1,11 @@
 <p>New step</p>
 
-<%= simple_form_for(@step) do |f| %>
-  <p>Commentaire :</p>
-
+<%= simple_form_for [@walk, @step] do |f| %>
+  <p>Nom de l'étape:</p>
+  <%= f.input :name, label: false  %>
+  <p>Latitude:</p>
+  <%= f.input :latitude, label: false  %>
+  <p>Longitude:</p>
+   <%= f.input :longitude, label: false  %>
   <%= f.button :submit, "Envoyer" %>
 <% end %>

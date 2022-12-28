@@ -28,13 +28,15 @@ class WalksController < ApplicationController
 
   def new
     @walk = Walk.new
+    @step = Step.new
     @walk.steps.build
   end
 
   def create
-    @walk = Walk.create(walk_params)
+    @step = Step.new
+    @walk = Walk.new(walk_params)
     @walk.user_id = current_user.id
-    if @walk.save!
+    if @walk.save
       redirect_to walk_path(@walk)
     else
       redirect_to walks_path
@@ -71,7 +73,7 @@ class WalksController < ApplicationController
 
   def walk_params
     params.require(:walk).permit(:title, :num_km, :duration, :rating, :address, :date, :content, :user_id, :status,
-    :link, steps: [:name, :latitude, :longitude], advantage_ids: [], disadvantage_ids: [], photos: [])
+    :link, steps_attributes: [:name, :latitude, :longitude], advantage_ids: [], disadvantage_ids: [], photos: [])
   end
 
   def set_walk

@@ -3,7 +3,6 @@
 <div class="new-container">
   <h4>Créer une nouvelle balade</h4>
 
-  <%#= render "form_walk", walk: @walk %>
   <div class= "form-walk">
   <%= simple_form_for(@walk) do |f| %>
   <div class="info-form">
@@ -27,6 +26,17 @@
       <%= f.input :address,
       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
       wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, label: false%>
+
+
+      <%= f.fields_for :steps do |p| %>
+        <p>Nom de l'étape:</p>
+        <%= p.input :name, label: false  %>
+        <p>Latitude:</p>
+        <%= p.input :latitude, label: false  %>
+        <p>Longitude:</p>
+        <%= p.input :longitude, label: false  %>
+      <% end %>
+
       <p>Date de la balade :</p>
       <%= f.input :date, label: false, order: [:day, :month, :year], use_month_names:['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre','Decembre'] %>
       <p>Description :</p>
@@ -51,12 +61,11 @@
   </div>
       <%= f.button :submit, "Créer la balade" %>
       <p> * champs obligatoires</p>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
   <%= link_to 'Retour à ma page', walks_path %>
 
 </div>
-
 
 <%= render "footer" %>
