@@ -6,7 +6,9 @@ class Walk < ApplicationRecord
   has_many :disadvantages, through: :walk_disadvantages, dependent: :destroy
   has_many_attached :photos, dependent: :destroy
   has_many :walk_reviews, dependent: :destroy
+  has_many :steps, dependent: :destroy
 
+  accepts_nested_attributes_for :steps
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

@@ -4,6 +4,7 @@
 @import "sign_up";
 @import "sign_in";
 @import "walk_rating";
+@import "new";
 
 .my-container {
   width: 100%;
@@ -13,17 +14,25 @@
 
   .card-map-container {
     display: flex;
-    margin-top: 1%;
+
   }
   .card-container {
     width: 50vw;
-    .abc {
-      margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.4%;
+    .add-walk{
+      display: flex;
+      a {
+        color: $green-primary;
+        text-align: start;
+        margin-left: 2%;
+        margin-bottom: 0.5%;
+      }
     }
   }
   a {
     text-decoration: none;
-
   }
 
   .new-walk {

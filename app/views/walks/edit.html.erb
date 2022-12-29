@@ -1,5 +1,14 @@
-<p> Modifier <%= @walk.title %></p>
+<%= render "navbar" %>
 
-<%= render "form_edit_walk", walk: @walk %>
+<div class="new-container">
 
-<%= link_to 'Retour à ma page', walks_path %>
+  <h4>Modifier "<%= @walk.title %>"</h4>
+
+  <%= render "form_edit_walk", walk: @walk %>
+
+  <%= link_to 'Retour à ma page', walks_path %>
+
+</div>
+
+
+<%= render "footer" %>

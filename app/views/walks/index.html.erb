@@ -5,13 +5,7 @@
  <h4><i class="fa-solid fa-paw"></i> Tu trouvera ici toutes les balades que tu as enregistré sur <em>Trace ta balade</em> <i class="fa-solid fa-paw"></i></h2>
   <div class="card-map-container">
     <div class="card-container">
-      <div class="popup display-none" data-show-target="popup">
-        <div class="popup-card">
-          <%= render "form_walk", walk: @walk %>
-        </div>
-        <i class="fa-solid fa-xmark cross" data-action="click->show#showPopup"></i>
-      </div>
-      <p class="new-walk" data-action="click->show#showPopup"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
+      <span class="add-walk"><%= link_to "+ Nouvelle balade +", new_walk_path %></span>
       <div class="walks" >
         <% unless @walks == nil %>
           <% @walks.each do |w| %>
@@ -55,7 +49,6 @@
           <% end %>
         <% end %>
       </div>
-        <p class="new-walk" data-action="click->show#showPopup"><i class="fa-solid fa-plus"></i> Nouvelle balade</p>
     </div>
     <div class="map"
       data-controller="map"

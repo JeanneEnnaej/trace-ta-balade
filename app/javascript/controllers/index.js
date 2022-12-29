@@ -13,6 +13,9 @@ application.register("hello", HelloController)
 import ImgController from "./img_controller"
 application.register("img", ImgController)
 
+import InsertStepController from "./insert_step_controller"
+application.register("insert-step", InsertStepController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 

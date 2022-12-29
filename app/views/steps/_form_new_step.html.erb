@@ -1,0 +1,9 @@
+<%= simple_form_for [walk] do |f| %>
+  <p>Nom de l'étape :</p>
+  <%= f.input :name, label: false  %>
+  <p>Latitude:</p>
+  <%= f.input :latitude, label: false  %>
+  <p>Longitude:</p>
+   <%= f.input :longitude, label: false  %>
+  <%= f.button :submit, "Envoyer" %>
+<% end %>
