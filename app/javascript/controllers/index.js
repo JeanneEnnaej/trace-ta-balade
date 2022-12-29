@@ -21,3 +21,6 @@ application.register("map", MapController)
 
 import ShowController from "./show_controller"
 application.register("show", ShowController)
+
+import StepMapController from "./step_map_controller"
+application.register("step-map", StepMapController)
