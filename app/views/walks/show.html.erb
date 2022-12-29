@@ -128,6 +128,14 @@
     </div>
   </div>
 
+  <div class="itinerary-container">
+    <ul>
+    <% @walk.steps.each do |step| %>
+      <li>Etape : <%= step.name %> / latitude :<%= step.latitude %> longitude :<%= step.longitude %></li>
+    <% end %>
+    </ul>
+  </div>
+
   <div class="show-link">
     <% if current_user.id == @walk.user_id %>
       <%= link_to "Créer un itinéraire de balade", walk_steps_path(@walk)%>
