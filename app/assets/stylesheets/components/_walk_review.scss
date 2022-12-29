@@ -1,6 +1,6 @@
 .walk-review {
   h4 {
-    margin-top: 5%;
+    margin-top: 1%;
   }
   ul {
     list-style: none;
@@ -8,5 +8,13 @@
   }
   li {
     font-size: 100%;
+  }
+  a {
+    color:white;
+    background-color: $green-primary;
+    padding: 0.5%;
+    border-radius: 5px;
+    justify-self: center;
+
   }
 }

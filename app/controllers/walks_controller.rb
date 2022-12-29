@@ -29,7 +29,7 @@ class WalksController < ApplicationController
       {
         lat: step.latitude,
         lng: step.longitude,
-        image_url: helpers.asset_url("green-logo.png")
+        image_url: helpers.asset_url("stepmarker.png")
       }
     end
   end
