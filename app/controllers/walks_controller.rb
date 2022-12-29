@@ -25,10 +25,12 @@ class WalksController < ApplicationController
 
   def show
     @average_rating = average_rating(@walk)
+
     @markers = @walk.steps.map do |step|
       {
         lat: step.latitude,
         lng: step.longitude,
+        info_window_step: render_to_string(partial: "info_window_step"), locals: {step: step},
         image_url: helpers.asset_url("stepmarker.png")
       }
     end
