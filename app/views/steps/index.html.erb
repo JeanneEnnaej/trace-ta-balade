@@ -1,0 +1,21 @@
+<%= render "walks/navbar" %>
+
+<div class="new-container">
+
+<h1>Bienvenue sur la creation de votre itinéraire</h1>
+
+  <% @steps.each do |step| %>
+    <%= step.name %>
+    <%= step.latitude %>
+    <%= step.longitude %>
+    <%= link_to "Modifier l'étape", edit_walk_step_path(@walk, step) %>
+    <%= link_to "Supprimer l'étape", walk_step_path(@walk, step), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <% end %>
+
+  <h4>Créer une nouvelle étape</h4>
+  <%= render "form_new_step", walk:@walk, step:@step %>
+
+</div>
+
+
+<%= render "walks/footer" %>

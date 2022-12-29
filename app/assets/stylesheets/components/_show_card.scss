@@ -92,8 +92,8 @@
 }
 .show-link {
   display: flex;
-  justify-content: center;
-  column-gap: 10%;
+  justify-content: space-around;
+
   margin-bottom: 4.5%;
   .edit-walk {
     background-color: $taupe-primary;

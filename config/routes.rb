@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :walks, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :walk_reviews, only: [ :new, :create]
-    resources :steps, only: [:new, :create, :destroy]
+    resources :steps, only: [:index, :new, :create, :edit, :update, :destroy]
   end
   resources :publicwalks, only: :index
   resources :reviews, only: [:destroy]
