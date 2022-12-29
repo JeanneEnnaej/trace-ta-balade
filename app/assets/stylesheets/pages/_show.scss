@@ -6,3 +6,67 @@
   flex-direction: column;
 
 }
+
+.show-link {
+  display: flex;
+  justify-content: space-around;
+
+  margin-bottom: 4.5%;
+  margin-top: 2%;
+  .edit-walk {
+    background-color: $taupe-primary;
+    color: white;
+    padding: 1% 4%;
+    border-radius: 5px;
+    margin-bottom: 0;
+  }
+  a {
+    background-color: $taupe-primary;
+    color: white;
+    padding: 1% 4%;
+    border-radius: 5px;
+  }
+}
+
+.itinerary-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: raw;
+  margin: 2%;
+  margin-bottom: 0;
+  .step-map {
+    width: 50vw;
+    height:50vh;
+    position: sticky;
+    top: 0;
+    margin-bottom: 2%;
+    margin-top: 2%;
+  }
+  .steps-list{
+    text-align: start;
+  }
+  .edit-itinerary {
+    color:white;
+    background-color: $green-primary;
+    padding: 1% 2%;
+    border-radius: 5px;
+    justify-self: center;
+    margin: 2%;
+  }
+
+  .new-itinerary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .create-itinerary {
+    color:white;
+    background-color: $green-primary;
+    padding: 1% 2%;
+    border-radius: 5px;
+    justify-self: center;
+    margin: 0.5%;
+  }
+}

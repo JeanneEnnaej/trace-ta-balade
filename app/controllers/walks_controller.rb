@@ -12,6 +12,7 @@ class WalksController < ApplicationController
         image_url: helpers.asset_url("green-logo.png")
       }
     end
+
     # @homemarker = current_user.geocoded.map do |home|
     #   {
     #     lat: home.latitude,
@@ -24,6 +25,15 @@ class WalksController < ApplicationController
 
   def show
     @average_rating = average_rating(@walk)
+
+    @markers = @walk.steps.map do |step|
+      {
+        lat: step.latitude,
+        lng: step.longitude,
+        info_window_step: render_to_string(partial: "info_window_step"), locals: {step: step},
+        image_url: helpers.asset_url("stepmarker.png")
+      }
+    end
   end
 
   def new

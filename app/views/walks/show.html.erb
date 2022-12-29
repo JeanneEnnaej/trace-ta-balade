@@ -114,31 +114,64 @@
         </div>
       </div>
     </div>
-    <div class="walk-review">
-      <h4>Commentaires</h4>
-      <% if @walk.walk_reviews == [] %>
-        <p>Il n'y a pas encore de commentaire sur cette balade, lancez vous !</p>
-      <% else %>
+  </div>
+
+  <div class="itinerary-container">
+   <% if @walk.steps.present? %>
+      <div class="step-map"
+        data-controller="step-map"
+        data-step-map-markers-value="<%= @markers.to_json %>"
+        data-step-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <div class="steps-list">
         <ul>
-          <% @walk.walk_reviews.each do |walk_review| %>
-            <p><li><%= walk_review.content %> / note : <%= walk_review.rating %></li></p>
-          <% end %>
+        <% s=0 %>
+        <% @walk.steps.each do |step| %>
+          <li>Etape <%= s+=1 %> : <%= step.name %> / latitude :<%= step.latitude %> longitude :<%= step.longitude %></li>
+        <% end %>
         </ul>
+        <% if current_user.id == @walk.user_id %>
+          <%= link_to "Modifier l'itinéraire de la balade", walk_steps_path(@walk), class: "edit-itinerary"%>
+        <% end %>
+      </div>
+    <% else %>
+      <% if current_user.id == @walk.user_id %>
+        <div class="new-itinerary">
+          <p>Créez un itinéraire pour plus de visibilité !</p>
+          <%= link_to "Créer un itinéraire de balade", walk_steps_path(@walk), class: "create-itinerary"%>
+        </div>
+      <% else %>
+        <p><%= @walk.user.first_name %> n'a pas créé d'itinéraire pour cette balade</p>
       <% end %>
-    </div>
+    <% end %>
+  </div>
+
+  <div class="walk-review">
+    <h4>Commentaires</h4>
+    <% if @walk.walk_reviews == [] %>
+      <p>Il n'y a pas encore de commentaire sur cette balade, lancez vous !</p>
+
+    <% else %>
+      <ul>
+        <% @walk.walk_reviews.each do |walk_review| %>
+          <p><li><%= walk_review.content %> / note : <%= walk_review.rating %></li></p>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= link_to "Noter la balade", new_walk_walk_review_path(@walk) %>
   </div>
 
   <div class="show-link">
     <% if current_user.id == @walk.user_id %>
-      <%= link_to "Créer un itinéraire de balade", walk_steps_path(@walk)%>
+      <%= link_to "Modifier la balade", edit_walk_path(@walk) %>
     <% end %>
-    <%= link_to "Modifier la balade", edit_walk_path(@walk) %>
-    <%= link_to "Noter la balade", new_walk_walk_review_path(@walk) %>
     <% if current_user.id == @walk.user_id %>
       <%= link_to "Supprimer la balade", walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     <% end %>
     <%= link_to "Retourner à la liste", walks_path %>
   </div>
 </div>
+
+
 
 <%= render "footer" %>
