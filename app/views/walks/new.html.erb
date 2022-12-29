@@ -54,7 +54,6 @@
 
       <div data-controller="insert-step">
         <div data-insert-step-target="item">
-          <p id="myList">
           <%= f.fields_for :steps do |p| %>
             <p>Nom de l'étape:</p>
             <%= p.input :name, label: false  %>
@@ -64,9 +63,9 @@
             <%= p.input :longitude, label: false  %>
           <% end %>
           <p data-action="click->insert-step#add">Ajouter une étape</p>
-          </p>
         </div>
       </div>
+
 
     </div>
   </div>
