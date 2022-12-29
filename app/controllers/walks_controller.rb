@@ -28,12 +28,10 @@ class WalksController < ApplicationController
 
   def new
     @walk = Walk.new
-    @step = Step.new
     @walk.steps.build
   end
 
   def create
-    @step = Step.new
     @walk = Walk.new(walk_params)
     @walk.user_id = current_user.id
     if @walk.save

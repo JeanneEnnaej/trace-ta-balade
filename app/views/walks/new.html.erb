@@ -52,20 +52,19 @@
 
 
 
-      <div data-controller="insert-step">
-        <div data-insert-step-target="item">
-          <%= f.fields_for :steps do |p| %>
-            <p>Nom de l'étape:</p>
-            <%= p.input :name, label: false  %>
-            <p>Latitude:</p>
-            <%= p.input :latitude, label: false  %>
-            <p>Longitude:</p>
-            <%= p.input :longitude, label: false  %>
-          <% end %>
-          <p data-action="click->insert-step#add">Ajouter une étape</p>
+      <%# <div data-controller="insert-step">
+        <div data-insert-step-target="item"> %>
+          <%#= f.fields_for :steps do |p| %>
+            <%# <p>Nom de l'étape:</p> %>
+            <%#= p.input :name, label: false  %>
+            <%# <p>Latitude:</p> %>
+            <%#= p.input :latitude, label: false  %>
+            <%# <p>Longitude:</p> %>
+            <%#= p.input :longitude, label: false  %>
+          <%#end %>
+          <%# <p data-action="click->insert-step#add">Ajouter une étape</p>
         </div>
-      </div>
-
+      </div> %>
 
     </div>
   </div>

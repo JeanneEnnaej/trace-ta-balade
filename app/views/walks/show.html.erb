@@ -129,6 +129,9 @@
   </div>
 
   <div class="show-link">
+    <% if current_user.id == @walk.user_id %>
+      <%= link_to "Créer un itinéraire de balade", walk_steps_path(@walk)%>
+    <% end %>
     <%= link_to "Modifier la balade", edit_walk_path(@walk) %>
     <%= link_to "Noter la balade", new_walk_walk_review_path(@walk) %>
     <% if current_user.id == @walk.user_id %>
