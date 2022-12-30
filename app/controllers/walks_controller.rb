@@ -2,7 +2,7 @@ class WalksController < ApplicationController
   before_action :set_walk, only: [:show, :edit, :update, :destroy]
 
   def index
-    @walks = Walk.where(user: current_user)
+    @walks = Walk.where(user: current_user).order('LOWER(title)')
     @walk = Walk.new
     @markers = @walks.geocoded.map do |walk|
       {
