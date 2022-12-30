@@ -12,25 +12,16 @@ class WalksController < ApplicationController
         image_url: helpers.asset_url("green-logo.png")
       }
     end
-
-    # @homemarker = current_user.geocoded.map do |home|
-    #   {
-    #     lat: home.latitude,
-    #     lng: home.longitude,
-    #     # info_window: render_to_string(partial: "info_window", locals: {walk: walk}),
-    #     image_url: helpers.asset_url("logo-brown.png")
-    #   }
-    # end
   end
 
   def show
     @average_rating = average_rating(@walk)
-
+    @steps = @walk.steps
     @markers = @walk.steps.map do |step|
       {
         lat: step.latitude,
         lng: step.longitude,
-        info_window_step: render_to_string(partial: "info_window_step"), locals: {step: step},
+        info_window_step: render_to_string(partial: "info_window_step", locals: {step: step}),
         image_url: helpers.asset_url("stepmarker.png")
       }
     end
@@ -69,6 +60,9 @@ class WalksController < ApplicationController
     redirect_to walks_path, status: :see_other
   end
 
+
+  private
+
   def average_rating(walk)
     average_rating = 0
     WalkReview.where(walk_id: walk.id).each do |walk_review|
@@ -76,8 +70,6 @@ class WalksController < ApplicationController
     end
     average_rating = average_rating.to_f / WalkReview.where(walk_id: walk.id).count.to_f
   end
-
-  private
 
   def walk_params
     params.require(:walk).permit(:title, :num_km, :duration, :rating, :address, :date, :content, :user_id, :status,
