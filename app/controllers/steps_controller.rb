@@ -38,7 +38,11 @@ class StepsController < ApplicationController
   def destroy
     @step = Step.find(params[:id])
     @step.destroy!
-    redirect_to walk_steps_path(@walk), status: :see_other
+    if request.referrer.include?("steps")
+      redirect_to walk_steps_path(@walk), status: :see_other
+    else
+      redirect_to walk_path(@walk), status: :see_other
+    end
   end
 
   private

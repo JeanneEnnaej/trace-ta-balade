@@ -1,1 +1,2 @@
 <p><%= step.name %></p>
+<p><%= link_to "Supprimer l'étape", walk_step_path(@walk, step), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cette étape?"} %></p>
