@@ -15,6 +15,7 @@ class WalksController < ApplicationController
   end
 
   def show
+    @step = Step.new
     @average_rating = average_rating(@walk)
     @steps = @walk.steps
     @markers = @walk.steps.map do |step|

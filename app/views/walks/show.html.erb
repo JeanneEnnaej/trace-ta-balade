@@ -122,6 +122,11 @@
         data-controller="step-map"
         data-step-map-markers-value="<%= @markers.to_json %>"
         data-step-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        <div class="form-map-step">
+          <p>Ajouter une étape</p>
+          <%= render "steps/form_new_step", walk:@walk, step:@step %>
+        </div>
+
       </div>
       <div class="steps-list">
         <ul>

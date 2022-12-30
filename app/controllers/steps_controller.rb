@@ -15,7 +15,11 @@ class StepsController < ApplicationController
     @step = Step.new(step_params)
     @step.walk = @walk
     if @step.save!
-      redirect_to walk_steps_path(@walk)
+      if request.referrer.include?("steps")
+        redirect_to walk_steps_path(@walk), status: :see_other
+      else
+        redirect_to walk_path(@walk), status: :see_other
+      end
     else
       render :new, status: :unprocessable_entity
     end
