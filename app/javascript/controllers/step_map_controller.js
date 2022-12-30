@@ -6,6 +6,9 @@ export default class extends Controller {
     apiKey: String,
     markers: Array
   }
+
+  static targets = [ "stepForm" ]
+
   connect() {
 
     mapboxgl.accessToken = this.apiKeyValue
@@ -16,7 +19,7 @@ export default class extends Controller {
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-
+    this.#hiddenStepForm()
   }
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
@@ -40,5 +43,13 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  }
+
+  #hiddenStepForm(){
+    this.stepFormTarget.hidden = true
+  }
+  showStepForm(){
+    this.stepFormTarget.hidden = false
+
   }
 }

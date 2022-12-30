@@ -52,7 +52,11 @@
         background-color: rgba(49, 176, 151,0.5);
         border-radius: 5px;
         color: black;
+        &:hover {
+          cursor: pointer;
+        }
       }
+
       #new_step.simple_form {
         margin-top: 7%;
         position: absolute;
