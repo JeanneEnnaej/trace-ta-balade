@@ -48,9 +48,9 @@ class WalksController < ApplicationController
 
   def update
     if @walk.update(walk_params)
-      redirect_to walks_path
+      redirect_to walk_path(@walk)
     else
-      render "form-edit-walk"
+      redirect_to edit_walk_path(@walk)
     end
 
   end
