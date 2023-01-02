@@ -62,6 +62,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.0.0'
   gem 'rails-controller-testing'
   gem 'faker'
+  gem 'cypress-on-rails', '~> 1.0'
 end
 
 group :development do
