@@ -5,7 +5,15 @@ RSpec.describe StepsController, type: :controller do
   describe "GET #index" do
     login_user
     walk = FactoryBot.create(:walk)
-
+    before(:each) do
+      Geocoder.configure(:lookup => :test)
+      Geocoder::Lookup::Test.add_stub(
+        "01700 Miribel, France", [
+          { 'latitude'     => 45.8235227,
+            'longitude'    => 4.9528525,
+          }
+          ])
+    end
 
     it "Index steps" do
       get :index, params: { walk_id: walk.id }
@@ -21,6 +29,15 @@ RSpec.describe StepsController, type: :controller do
   describe "POST #create" do
     login_user
     walk = FactoryBot.create(:walk)
+    before(:each) do
+      Geocoder.configure(:lookup => :test)
+      Geocoder::Lookup::Test.add_stub(
+        "01700 Miribel, France", [
+          { 'latitude'     => 45.8235227,
+            'longitude'    => 4.9528525,
+          }
+          ])
+    end
 
     it "Create step" do
       @request.env['HTTP_REFERER'] = 'http://localhost:3000/walks/15'
@@ -53,6 +70,15 @@ RSpec.describe StepsController, type: :controller do
     login_user
     walk = FactoryBot.create(:walk)
     step = FactoryBot.create(:step)
+    before(:each) do
+      Geocoder.configure(:lookup => :test)
+      Geocoder::Lookup::Test.add_stub(
+        "01700 Miribel, France", [
+          { 'latitude'     => 45.8235227,
+            'longitude'    => 4.9528525,
+          }
+          ])
+    end
 
     it "Update step" do
       patch :update, params: {walk_id: walk.id ,id: step.id,step: { name: "Test step", longitude: "123", latitude:"456", walk_id: walk.id } }
@@ -69,6 +95,15 @@ RSpec.describe StepsController, type: :controller do
     login_user
     walk = FactoryBot.create(:walk)
     step = FactoryBot.create(:step)
+    before(:each) do
+      Geocoder.configure(:lookup => :test)
+      Geocoder::Lookup::Test.add_stub(
+        "01700 Miribel, France", [
+          { 'latitude'     => 45.8235227,
+            'longitude'    => 4.9528525,
+          }
+          ])
+    end
 
     it "Delete step" do
       @request.env['HTTP_REFERER'] = 'http://localhost:3000/walks/15/steps'
