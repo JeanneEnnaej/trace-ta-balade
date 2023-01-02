@@ -14,7 +14,7 @@ class StepsController < ApplicationController
   def create
     @step = Step.new(step_params)
     @step.walk = @walk
-    if @step.save!
+    if @step.save
       if request.referrer.include?("steps")
         redirect_to walk_steps_path(@walk), status: :see_other
       else
@@ -35,7 +35,7 @@ class StepsController < ApplicationController
     if @step.update(step_params)
       redirect_to walk_steps_path(@walk)
     else
-      render "form_edit_step"
+      redirect_to edit_walk_step_path(@walk, @step)
     end
   end
 
