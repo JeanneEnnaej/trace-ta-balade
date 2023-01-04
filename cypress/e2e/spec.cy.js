@@ -1,7 +1,7 @@
 describe('Home page', () => {
   beforeEach(() => { cy.app('load_seed') })
   beforeEach(() => {
-    cy.visit('http://localhost:5017')
+    cy.visit(Cypress.config().baseUrl)
 
   })
 
@@ -30,9 +30,19 @@ describe('Home page', () => {
   it ('footer', () => {
 
     cy.get('a').eq(6).invoke('removeAttr', 'target').click()
-    cy.url()
-    .should('include', 'https://github.com/JeanneEnnaej')
-    cy.go('back')
+    cy.origin('https://github.com/JeanneEnnaej', () => {
+    cy.get('h1').should('contain', 'Hi') })
+
+    // cy.visit(Cypress.config().baseUrl)
+    // cy.get('a').eq(7).invoke('removeAttr', 'target').click()
+    // cy.origin('https://www.linkedin.com/in/jeanne-desmier-6061a3a7/', () => {
+    // cy.get('h1').should('contain', 'Jeanne') })
+
+    // cy.visit(Cypress.config().baseUrl)
+    // cy.get('a').eq(6).invoke('removeAttr', 'target').click()
+    // cy.origin('https://www.instagram.com/les_aleas_d_une_vie_de_chien/', () => {
+    // cy.get('h2').should('contain', 'aleas') })
+
 
   })
 
