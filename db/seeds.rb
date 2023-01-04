@@ -120,4 +120,13 @@ Step.create(name: "départ", latitude:45.722911, longitude: 4.9035064, walk_id: 
 Step.create(name: "hypodrome", latitude:45.7225931, longitude: 4.9151265, walk_id: walk4.id )
 Step.create(name: "parc à chiens", latitude:45.7128903, longitude: 4.8985139, walk_id: walk4.id )
 
+
+p "creation of walk's reviews"
+
+WalkReview.create(content: "Balade sympa", rating: 4, walk_id: walk1.id)
+WalkReview.create(content: "Beaucoup de monde et de barbecue l'été", rating: 2, walk_id: walk1.id)
+
+
+
+
 p "finished"
