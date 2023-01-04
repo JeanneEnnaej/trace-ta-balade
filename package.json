@@ -11,7 +11,8 @@
     "webpack-cli": "^4.10.0"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "cy:run": "cypress run"
   },
   "devDependencies": {
     "cypress": "^12.2.0"
