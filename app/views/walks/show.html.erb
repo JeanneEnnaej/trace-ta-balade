@@ -64,7 +64,9 @@
 
       <div class="show-card-text">
         <div class="info">
-          <p>Balade du <%= @walk.date.strftime("%d/%m/%Y") %></p>
+          <% if @walk.date.present? %>
+            <p>Balade du <%= @walk.date.strftime("%d/%m/%Y") %></p>
+          <% end %>
           <p>Adresse : <%= @walk.address %></p>
         </div>
         <div class="details">
