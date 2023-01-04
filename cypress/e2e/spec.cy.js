@@ -1,6 +1,8 @@
 describe('Home page', () => {
+  beforeEach(() => { cy.app('load_seed') })
   beforeEach(() => {
     cy.visit('http://localhost:5017')
+
   })
 
   it('navbar', () => {
