@@ -1,10 +1,10 @@
 class StepsController < ApplicationController
-  before_action :set_walk, only: [:index, :new, :create, :destroy, :edit, :update]
+  before_action :find_walk, only: %i[index new create destroy edit update]
 
 
   def index
     @steps = Step.where(walk: @walk)
-    @step= Step.new
+    @step = Step.new
   end
 
   def new
@@ -27,7 +27,6 @@ class StepsController < ApplicationController
 
   def edit
     @step = Step.find(params[:id])
-
   end
 
   def update
@@ -55,7 +54,7 @@ class StepsController < ApplicationController
     params.require(:step).permit(:name, :latitude, :longitude, :walk_id)
   end
 
-  def set_walk
+  def find_walk
     @walk = Walk.find(params[:walk_id])
   end
 end

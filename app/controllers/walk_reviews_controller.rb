@@ -1,5 +1,5 @@
 class WalkReviewsController < ApplicationController
-  before_action :set_walk, only: [:new, :create, :destroy]
+  before_action :find_walk, only: %i[new create destroy]
 
   def new
     @walk_review = WalkReview.new
@@ -27,7 +27,7 @@ class WalkReviewsController < ApplicationController
     params.require(:walk_review).permit(:rating, :content, :walk_id)
   end
 
-  def set_walk
+  def find_walk
     @walk = Walk.find(params[:walk_id])
   end
 end
