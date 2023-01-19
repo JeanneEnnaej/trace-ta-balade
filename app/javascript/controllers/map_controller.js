@@ -5,10 +5,13 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    homemarker: Array
   }
 
   connect() {
+    console.log(this.homemarkerValue)
+    console.log(this.markersValue)
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -19,6 +22,7 @@ export default class extends Controller {
     this.#fitMapToMarkers()
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
                                         mapboxgl: mapboxgl }))
+    this.#addHomeMarkerToMap()
   }
 
   #addMarkersToMap() {
@@ -37,6 +41,25 @@ export default class extends Controller {
           .setPopup(popup)
           .addTo(this.map)
       })
+
+  }
+
+  #addHomeMarkerToMap() {
+    this.homemarkerValue.forEach((homemarker) => {
+      const popup = new mapboxgl.Popup().setHTML(homemarker.info_window)
+
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker"
+      customMarker.style.backgroundImage = `url('${homemarker.image_url}')`
+      customMarker.style.backgroundSize = "contain"
+      customMarker.style.width = "30px"
+      customMarker.style.height = "30px"
+
+      new mapboxgl.Marker(customMarker)
+        .setLngLat([ homemarker.lng, homemarker.lat ])
+        .setPopup(popup)
+        .addTo(this.map)
+    })
   }
 
   #fitMapToMarkers() {

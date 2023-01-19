@@ -12,6 +12,14 @@ class WalksController < ApplicationController
         image_url: helpers.asset_url("green-logo.png")
       }
     end
+    @homemarker =
+    [
+        lat: current_user.latitude,
+        lng: current_user.longitude,
+        info_window: render_to_string(partial: "info_window_home", locals: {user: current_user}),
+        image_url: helpers.asset_url("homemarker.png")
+
+      ]
   end
 
   def show
