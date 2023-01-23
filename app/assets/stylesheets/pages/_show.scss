@@ -17,14 +17,14 @@
     background-color: $taupe-primary;
     color: white;
     padding: 1% 4%;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     margin-bottom: 0;
   }
   a {
     background-color: $taupe-primary;
     color: white;
     padding: 1% 4%;
-    border-radius: 5px;
+    border-radius: 0.313rem;
   }
 }
 
@@ -50,7 +50,7 @@
         margin: 1%;
         padding: 1%;
         background-color: rgba(49, 176, 151,0.5);
-        border-radius: 5px;
+        border-radius: 0.313rem;
         color: black;
         &:hover {
           cursor: pointer;
@@ -101,7 +101,7 @@
     color:white;
     background-color: $green-primary;
     padding: 1% 2%;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     justify-self: center;
     margin: 2%;
   }
@@ -116,7 +116,7 @@
     color:white;
     background-color: $green-primary;
     padding: 1% 2%;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     justify-self: center;
     margin: 0.5%;
   }

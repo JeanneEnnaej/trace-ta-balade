@@ -24,7 +24,7 @@
   .info-form{
     display: flex;
     justify-content: center;
-    column-gap: 70px;
+    column-gap: 4.375rem;
     flex-direction: row;
     height: 100%;
     width: 100%;
@@ -32,23 +32,23 @@
   .btn {
     background-color: $green-primary;
     color: white;
-    border-radius: 5px;
-    margin-top: 16px;
+    border-radius: 0.313rem;
+    margin-top: 1rem;
   }
   #walk_title, #walk_num_km, #walk_duration, #walk_rating, #walk_address, #walk_content, #walk_link {
-    border-radius: 5px;
-    padding-left: 12px;
-    border: 2px solid black;
+    border-radius: 0.313rem;
+    padding-left: 0.75rem;
+    border: 0.125rem solid black;
   }
 
   p {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 
   select {
     .date{
-      border: 2px solid $green-primary;
+      border: 0.125rem solid $green-primary;
     }
   }
 }
@@ -59,14 +59,14 @@
 }
 .right-content{
   .input {
-    margin-bottom: 28px;
+    margin-bottom: 1.75rem;
   }
   input::file-selector-button {
     background-color: $light-brown-primary;
     color: black;
     border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
+    border-radius: 0.313rem;
+    padding: 0.5rem 0.75rem;
   }
   .positif {
     display: grid;
@@ -77,7 +77,7 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
   .collection_check_boxes {
-    margin-left: 10px;
+    margin-left: 0.625rem;
   }
   p {
     color: $green-primary;
@@ -87,10 +87,10 @@
     justify-content: space-around;
   }
   #walk_status_public {
-    margin-right: 10px;
+    margin-right: 0.625rem;
   }
   #walk_status_privée {
-    margin-right: 10px;
+    margin-right: 0.625rem;
 
   }
 
