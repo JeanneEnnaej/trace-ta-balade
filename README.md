@@ -4,3 +4,7 @@ Trace ta balade est une application qui permet de créer, d'enregistrer et de pa
 
 
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+
+
+API Key :
+Create .env with MAPBOX_API_KEY
