@@ -76,9 +76,12 @@ class WalksController < ApplicationController
   end
 
   def walk_params
-    params.require(:walk).permit(:title, :num_km, :duration, :rating, :address, :date, :content, :user_id, :status,
+    paramsbis ||= params.require(:walk).permit(:title, :num_km, :duration, :rating, :address, :date, :content, :user_id, :status,
                                  :link, steps_attributes: %i[name latitude longitude], advantage_ids: [],
                                  disadvantage_ids: [], photos: [])
+    paramsbis[:num_km] = paramsbis[:num_km].to_f * 1000
+
+    paramsbis
   end
 
   def find_walk
