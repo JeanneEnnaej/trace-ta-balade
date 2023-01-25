@@ -9,9 +9,11 @@
       <div class="left-content">
         <p>* Nom de la balade :</p>
         <%= f.input :title, label: false, placeholder: "" %>
-        <p>Distance :</p>
+        <p>Distance (en km) :</p>
         <%= f.number_field :num_km, in: 0..20, step: 0.5, label: false %>
         <p>Durée :</p>
+        <%#= f.number_field :duration, in: 0..12, step: 1, label: false %>
+        <%#= f.number_field :duration, in: 0..60, step: 15, label: false %>
         <%= f.input :duration, label: false,
         collection: [["1h", 60], ["1h15", 69], ["1h30", 78], ["1h45", 87],
         ["2h", 120], ["2h15", 129], ["2h30", 138], ["2h45", 147],
