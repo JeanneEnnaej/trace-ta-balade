@@ -63,6 +63,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'faker'
   gem 'cypress-on-rails', '~> 1.0'
+  gem 'pry-byebug'
 end
 
 group :development do

@@ -48,6 +48,8 @@ class WalksController < ApplicationController
   end
 
   def edit
+    @walk.num_km = @walk.num_km.to_f / 1000
+    # debug(params)
   end
 
   def update
@@ -61,7 +63,6 @@ class WalksController < ApplicationController
 
   def destroy
     @walk.destroy!
-
     redirect_to walks_path, status: :see_other
   end
 
@@ -80,7 +81,6 @@ class WalksController < ApplicationController
                                  :link, steps_attributes: %i[name latitude longitude], advantage_ids: [],
                                  disadvantage_ids: [], photos: [])
     paramsbis[:num_km] = paramsbis[:num_km].to_f * 1000
-
     paramsbis
   end
 
