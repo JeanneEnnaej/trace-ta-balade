@@ -5,7 +5,8 @@
       <p>* Nom de la balade : </p>
       <%= f.input :title, label: false, placeholder: "" %>
       <p>Distance :</p>
-      <%= f.input :num_km ,label: false, collection: [["1km", 1000], ["1,5km", 1500], ["2km", 2000], ["2,5km", 2500],
+      <%= f.number_field :num_km, in: 0..20, step: 0.5, label: false %>
+      <%#= f.input :num_km ,label: false, collection: [["1km", 1000], ["1,5km", 1500], ["2km", 2000], ["2,5km", 2500],
       ["3km", 3000], ["3,5km", 3500], ["4km", 4000], ["4,5km", 4500],
       ["5km", 5000], ["5,5km", 5500], ["6km", 6000], ["6,5km", 6500],
       ["7km", 7000], ["7,5km", 7500], ["8km", 8000], ["8,5km", 8500]]%>
@@ -28,7 +29,15 @@
       <p>Lien externe :</p>
       <%= f.input :link, label: false %>
       <p>Photo(s) (3 max)</p>
-      <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
+      <% if walk.photos.attached? %>
+        <% walk.photos.each do |photo| %>
+          <p>Photo(s) de la balade : <%= photo.filename %></p>
+          <p>Changer les photos</p>
+          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
+        <% end %>
+      <% else %>
+       <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
+      <% end %>
       <p>Points positifs :</p>
       <div class="positif">
         <%= f.collection_check_boxes :advantage_ids, Advantage.all, :id, :name, label: false %>
